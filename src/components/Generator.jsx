@@ -18,7 +18,7 @@ const Generator = ({ className }) => {
         type="text"
         value={inputText}
         onChange={e => setInputText(e.target.value)}
-        className='p-2 rounded-md border-1 border-gray-300'
+        className='p-2 rounded-md border border-gray-600'
       />
       <button 
         type="submit" 
