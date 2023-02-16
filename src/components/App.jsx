@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Navbar from './NavBar'
+import Outlet from './Outlet'
 
 
 function App() {
@@ -11,23 +12,3 @@ function App() {
   )
 }
 export default App
-
-
-const initialState = {
-  prompt: ""
-}
-
-const Outlet = (props) => {
-  return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <div className="text-lg font-bold">
-        State
-      </div>
-      <div className='font-mono'>
-        prompt: { initialState.prompt }
-      </div>
-    </div>
-  )
-}
-
-
