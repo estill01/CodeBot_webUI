@@ -1,8 +1,17 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
-// import './App.css'
-import Navbar from './Navbar'
-// import Generator from './Generator'
+import Navbar from './NavBar'
+
+
+function App() {
+  return (
+    <div id="App" className="w-screen h-screen">
+      <Navbar className='bg-slate-800'/>
+      <Outlet />
+    </div>
+  )
+}
+export default App
 
 
 const initialState = {
@@ -21,18 +30,5 @@ const Outlet = (props) => {
     </div>
   )
 }
-
-
-function App() {
-  return (
-    <div id="App" className="w-screen h-screen">
-      <Navbar />
-      <Outlet />
-    </div>
-  )
-}
-
-export default App
-
 
 

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Generator from './Generator';
 
-const NavBar = (props) => {
+const NavBar = ({ className }) => {
   return (
-    <div 
-      id='NavBar' 
-      className={`fixed top-0 left-0 right-0 flex items-center bg-gray-800 text-white p-4 ${props.className}`}
-    >
-      <Generator className='flex'/>
+    <div id='NavBarPadding' className='h-16'>
+      <div 
+        id='NavBar' 
+        className={`fixed top-0 left-0 right-0 h-16 flex flex-row text-white p-4 ${className}`}
+      >
+        <Generator className='mx-auto self-center'/>
+      </div>
     </div>
   )
 };
