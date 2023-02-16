@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-const Generator = ({ className }) => {
+const GeneratorInput = ({ className }) => {
   const [inputText, setInputText] = useState("");
   const [output, setOutput] = useState("");
 
   const handleSubmit = async () => {
-    console.log("# inputText:", inputText);
     const response = await fetchOpenAI({
       prompt: inputText,
     });
@@ -13,7 +12,7 @@ const Generator = ({ className }) => {
   };
 
   return (
-    <div id='Generator' className={className}>
+    <div id='GeneratorInput' className={className}>
       <input
         type="text"
         value={inputText}
@@ -31,7 +30,7 @@ const Generator = ({ className }) => {
     </div>
   );
 }
-export default Generator;
+export default GeneratorInput;
 
 async function fetchOpenAI({
   endpoint="https://api.openai.com/v1/completions",

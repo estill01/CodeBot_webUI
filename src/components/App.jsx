@@ -6,7 +6,7 @@ import Navbar from './NavBar'
 function App() {
   return (
     <div id="App" className="w-screen h-screen">
-      <Navbar className='bg-slate-800'/>
+      <Navbar className='bg-slate-800 drop-shadow'/>
       <Outlet />
     </div>
   )
