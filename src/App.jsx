@@ -7,6 +7,7 @@ function App() {
 
   return (
     <div className="App">
+      { console.log("Environment Variables: ", import.meta.env.VITE_OPENAI_API_KEY) }
       <div className='flex flex-row'>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
