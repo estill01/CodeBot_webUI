@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import GeneratorInput from './Generator';
 import LogoBot from '../assets/logo_bot/logo_bot.png';
 

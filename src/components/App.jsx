@@ -5,7 +5,7 @@ function App() {
   return (
     <div id="App" className="w-screen h-screen">
       <Navbar className='bg-slate-800 drop-shadow'/>
-      <Outlet />
+      <Outlet/>
     </div>
   )
 }

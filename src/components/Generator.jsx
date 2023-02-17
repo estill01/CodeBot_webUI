@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-// TODO import api fetcher from utils
-
 import { useAtom } from 'jotai';
 import { promptAtom } from "../atoms";
+
+// TODO import api fetcher from utils
+
 
 
 const GeneratorInput = ({ className }) => {
   const [inputText, setInputText] = useState("");
-  const [prompt, setPrompt] = useAtom(promptAtom);
+  const [ prompt, setPrompt ] = useAtom(promptAtom);
 
   const handleSubmit = async () => {
     setPrompt(inputText);
-    console.log("Atom Prompt: ", prompt);
-
-{/*    const response = await fetchOpenAI({*/}
-      {/*prompt: inputText,*/}
-    {/*});*/}
-    {/*console.log(response);*/}
+    // TODO fetch openai api response
   };
 
   return (
@@ -31,7 +27,7 @@ const GeneratorInput = ({ className }) => {
       <button 
         type="submit" 
         onClick={handleSubmit}
-        className='ml-2 p-2 rounded-md border-1 border-purple-800'
+        className='ml-2 p-2 rounded-md border-1 border-purple-800 bg-purple-900'
       >
         Generate 
       </button>
@@ -39,3 +35,14 @@ const GeneratorInput = ({ className }) => {
   );
 }
 export default GeneratorInput;
+
+
+
+{/*    const response = await fetchOpenAI({*/}
+      {/*prompt: inputText,*/}
+    {/*});*/}
+    {/*console.log(response);*/}
+
+  // const [prompt, setPrompt] = useAtom(promptAtom);
+  // const prompt = useAtomValue(promptAtom);
+
