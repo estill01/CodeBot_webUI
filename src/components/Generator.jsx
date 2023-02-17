@@ -1,6 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useAtom } from 'jotai';
-import { promptAtom } from "../atoms";
+import { promptAtom, promptResponseAtom, isFetchingAtom } from "../atoms";
+
+// ---- TMP ----
+import { fetchOpenAI } from "../utils/utils.js";
+// -------------
 
 // TODO import api fetcher from utils
 
@@ -8,6 +12,9 @@ import { promptAtom } from "../atoms";
 
 const GeneratorInput = ({ className }) => {
   const [ prompt, setPrompt ] = useAtom(promptAtom);
+  const [ promptResponse, setPromptResponse ] = useAtom(promptResponseAtom);
+  const [ isFetching, setIsFetching ] = useAtom(isFetchingAtom);
+
   const inputRef = useRef();
   const formRef = useRef();
 
@@ -21,14 +28,23 @@ const GeneratorInput = ({ className }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    {/*e.stopPropagation();*/}
+
     console.log("handleSubmit");
     console.log(e)
     console.log("submitting")
     console.log(inputRef.current.value)
+
     setPrompt(inputRef.current.value)
     inputRef.current.value = ""
 
+    setIsFetching(true);
+    let response = await fetchOpenAI(prompt)
+    setIsFetching(false);
+    setPromptResponse(response)
+
+
+
+  
     // setPrompt(e.target.value)
     // e.target.value = ""
     // TODO fetch openai api response
@@ -36,7 +52,7 @@ const GeneratorInput = ({ className }) => {
 
   return (
     <div id='GeneratorInput' className={`flex flex-row ${className}`}>
-      <form onSubmit={handleSubmit} ref={formRef} >
+      <form onSubmit={handleSubmit} ref={formRef} className='flex-1'>
         <input
           name="prompt_input"
           ref={inputRef}
