@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useAtom } from 'jotai';
 import { promptAtom } from "../atoms";
 
@@ -8,32 +8,26 @@ import { promptAtom } from "../atoms";
 
 const GeneratorInput = ({ className }) => {
   const [ prompt, setPrompt ] = useAtom(promptAtom);
+  const inputRef = useRef();
+  const formRef = useRef();
 
   const handleKeyPress = (e) => {
     console.log("handleKeyPress");
     if (e.key === "Enter") {
-      console.log("handleKeyPress: enter");
-      console.log(e.target.value)
-      setPrompt(e.target.value)
-      e.target.value = ""
+      console.log("enter pressed");
     }
   }
-
-  const handleKeyDown = (e) => {
-    console.log("handleKeyDown")
-  }
-  const handleKeyUp = (e) => {
-    console.log("handleKeyUp")
-  }
-  const handleChange = (e) => {
-    console.log("handleChange")
-  }
-  
+      // console.log(formRef.current);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    {/*e.stopPropagation();*/}
+    console.log("handleSubmit");
+    console.log(e)
     console.log("submitting")
-    console.log(e.target.value)
+    console.log(inputRef.current.value)
+    setPrompt(inputRef.current.value)
+    inputRef.current.value = ""
 
     // setPrompt(e.target.value)
     // e.target.value = ""
@@ -42,14 +36,12 @@ const GeneratorInput = ({ className }) => {
 
   return (
     <div id='GeneratorInput' className={`flex flex-row ${className}`}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef} >
         <input
           name="prompt_input"
+          ref={inputRef}
           type="text"
           onKeyPress={handleKeyPress}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
-          onChange={handleChange}
           className='p-2 rounded-md border border-gray-600 flex-1'
           placeholder="What are we building?"
         />
@@ -63,6 +55,15 @@ const GeneratorInput = ({ className }) => {
   );
 }
 export default GeneratorInput;
+
+      // formRef.current.submit();
+      // submit the form
+      
+{/*      console.log("handleKeyPress: enter");*/}
+      {/*console.log(e.target.value)*/}
+      {/*setPrompt(e.target.value)*/}
+      {/*e.target.value = ""*/}
+
 
 
 
