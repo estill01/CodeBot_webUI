@@ -7,30 +7,58 @@ import { promptAtom } from "../atoms";
 
 
 const GeneratorInput = ({ className }) => {
-  const [inputText, setInputText] = useState("");
   const [ prompt, setPrompt ] = useAtom(promptAtom);
 
-  const handleSubmit = async () => {
-    setPrompt(inputText);
+  const handleKeyPress = (e) => {
+    console.log("handleKeyPress");
+    if (e.key === "Enter") {
+      console.log("handleKeyPress: enter");
+      console.log(e.target.value)
+      setPrompt(e.target.value)
+      e.target.value = ""
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    console.log("handleKeyDown")
+  }
+  const handleKeyUp = (e) => {
+    console.log("handleKeyUp")
+  }
+  const handleChange = (e) => {
+    console.log("handleChange")
+  }
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("submitting")
+    console.log(e.target.value)
+
+    // setPrompt(e.target.value)
+    // e.target.value = ""
     // TODO fetch openai api response
   };
 
   return (
     <div id='GeneratorInput' className={`flex flex-row ${className}`}>
-      <input
-        type="text"
-        value={inputText}
-        onChange={e => setInputText(e.target.value)}
-        className='p-2 rounded-md border border-gray-600 flex-1'
-        placeholder="What should we build?"
-      />
-      <button 
-        type="submit" 
-        onClick={handleSubmit}
-        className='ml-2 p-2 rounded-md border-1 border-purple-800 bg-purple-900'
-      >
-        Generate 
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="prompt_input"
+          type="text"
+          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
+          onChange={handleChange}
+          className='p-2 rounded-md border border-gray-600 flex-1'
+          placeholder="What are we building?"
+        />
+        <input
+          type="submit" 
+          className='ml-2 p-2 rounded-md border-1 border-purple-800 bg-purple-900 hover:bg-purple-800 active:bg-purple-900 cursor-pointer'
+          value="Generate"
+        />
+      </form>
     </div>
   );
 }
