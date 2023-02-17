@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import Navbar from './NavBar'
 import Outlet from './Outlet'
-
 
 function App() {
   return (

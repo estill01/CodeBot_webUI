@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 // TODO import api fetcher from utils
 
+import { useAtom } from 'jotai';
+import { promptAtom } from "../atoms";
+
 
 const GeneratorInput = ({ className }) => {
   const [inputText, setInputText] = useState("");
+  const [prompt, setPrompt] = useAtom(promptAtom);
 
   const handleSubmit = async () => {
-    const response = await fetchOpenAI({
-      prompt: inputText,
-    });
-    console.log(response);
+    setPrompt(inputText);
+    console.log("Atom Prompt: ", prompt);
+
+{/*    const response = await fetchOpenAI({*/}
+      {/*prompt: inputText,*/}
+    {/*});*/}
+    {/*console.log(response);*/}
   };
 
   return (
