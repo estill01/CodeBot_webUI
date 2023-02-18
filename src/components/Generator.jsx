@@ -52,14 +52,15 @@ const GeneratorInput = ({ className }) => {
 
   return (
     <div id='GeneratorInput' className={`flex flex-row ${className}`}>
-      <form onSubmit={handleSubmit} ref={formRef} className='flex-1'>
+      <form onSubmit={handleSubmit} ref={formRef} className='flex-1 flex'>
         <input
-          name="prompt_input"
-          ref={inputRef}
           type="text"
-          onKeyPress={handleKeyPress}
+          name="prompt_input"
           className='p-2 rounded-md border border-gray-600 flex-1'
+          ref={inputRef}
+          onKeyPress={handleKeyPress}
           placeholder="What are we building?"
+          autoComplete="off"
         />
         <input
           type="submit" 
