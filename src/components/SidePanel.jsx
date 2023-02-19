@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { SpinnerCircular } from 'spinners-react';
-import { useAtom } from 'jotai';
-import { promptAtom, isFetchingAtom } from '../atoms';
-import { FaceIcon } from '@radix-ui/react-icons';
+import { atom, useAtom } from 'jotai';
+import { promptAtom, isFetchingAtom, isPanelOpenAtom } from '../atoms';
+import { FaceIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons';
 import CodeGlyph from './utils/CodeGlyph';
 import Logo from './utils/Logo';
+import TogglePanelButton from './utils/TogglePanelButton';
+
 
 const SidePanel = ({className}) => {
   const [ prompt ] = useAtom(promptAtom);
@@ -21,8 +23,9 @@ export default SidePanel;
     // <div className="flex items-center text-white p-4 bg-zinc-900 bg-gradient-to-bl from-transparent to-[#00000057]">
 const PanelBanner = ({className}) => {
   return (
-    <div className="flex items-center text-white p-4 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
-      <Logo/>
+    <div className="flex flex-row items-center text-white p-4 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
+      <Logo className='flex-1'/>
+      <TogglePanelButton/>
     </div>
   )
 }

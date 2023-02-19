@@ -4,6 +4,7 @@ export const promptAtom = atom("");
 export const promptResponseAtom = atom("");
 
 export const isFetchingAtom = atom(false);
+export const isPanelOpenAtom = atom(true);
 
 /*export const promptAtom = atom(*/
   /*(get) => get(_promptAtom),*/
