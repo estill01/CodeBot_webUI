@@ -9,7 +9,7 @@ const TogglePanelButton = ({className, color='grey', hoverColor="green"}) => {
     setIsPanelOpen(!isPanelOpen);
   }
   return (
-    <div className={`border border-slate-800 rounded-md p-1 ml-3 hover:cursor-pointer hover:bg-neutral-800 hover:border-green-800 active:bg-neutral-900 ${className}`} onClick={doToggle}>
+    <div className={`border border-slate-800 rounded-md p-1 hover:cursor-pointer hover:bg-neutral-800 hover:border-green-800 active:bg-neutral-900 ${className}`} onClick={doToggle}>
       { isPanelOpen ? <DoubleArrowLeftIcon className='w-3 h-3' color={color} /> : <DoubleArrowRightIcon className='w-3 h-3' color={color}/> }
     </div>
   )

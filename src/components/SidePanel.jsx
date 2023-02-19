@@ -14,7 +14,7 @@ const SidePanel = ({className}) => {
     <div className='flex flex-col w-1/5 bg-black border-r border-neutral-900 drop-shadow-[2px_0_3px_rgba(0,0,0,0.25)]'>
       <PanelBanner className=''/>
       <ProjectsList/>
-      <PanelHeader title='Account'/>
+      <PanelSectionHeader title='Account'/>
     </div>
   )
 }
@@ -23,14 +23,14 @@ export default SidePanel;
     // <div className="flex items-center text-white p-4 bg-zinc-900 bg-gradient-to-bl from-transparent to-[#00000057]">
 const PanelBanner = ({className}) => {
   return (
-    <div className="flex flex-row items-center text-white p-4 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
+    <div className="flex flex-row items-center text-white p-2 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
       <Logo className='flex-1'/>
       <TogglePanelButton/>
     </div>
   )
 }
 
-const PanelHeader = ({className, title}) => {
+const PanelSectionHeader = ({className, title}) => {
   const Icon = (name) => {
     switch(name) {
       case 'Projects':
@@ -54,7 +54,7 @@ const ProjectsList = ({className}) => {
   const [ prompt ] = useAtom(promptAtom);
   return (
     <>
-      <PanelHeader title='Projects'/>
+      <PanelSectionHeader title='Projects'/>
       <div className='flex-1 px-2 pt-3'>
         { prompt &&
         <ProjectListItem prompt={prompt}/>
