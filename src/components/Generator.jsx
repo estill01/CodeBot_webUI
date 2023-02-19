@@ -41,9 +41,6 @@ const GeneratorInput = ({ className }) => {
     let response = await fetchOpenAI({prompt})
     setIsFetching(false);
     setPromptResponse(response)
-
-
-
   
     // setPrompt(e.target.value)
     // e.target.value = ""
@@ -56,17 +53,19 @@ const GeneratorInput = ({ className }) => {
         <input
           type="text"
           name="prompt_input"
-          className='p-2 rounded-md border border-gray-600 flex-1'
+          className='p-2 rounded-md border border-gray-600 flex-1 mr-2'
           ref={inputRef}
           onKeyPress={handleKeyPress}
-          placeholder="What are we building?"
+          placeholder="What should I make?"
           autoComplete="off"
         />
-        <input
-          type="submit" 
-          className='ml-2 p-2 rounded-md border-1 border-purple-800 bg-purple-900 hover:bg-purple-800 active:bg-purple-900 cursor-pointer'
-          value="Generate"
-        />
+        <button
+          type="submit"
+          className="inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 active:bg-green-800 focus:outline-none"
+
+        >
+            Generate
+        </button>
       </form>
     </div>
   );

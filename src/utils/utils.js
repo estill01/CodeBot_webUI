@@ -91,7 +91,7 @@ const API = {
           // max_tokens: this.openai.model.code.cushman.max_tokens,
         },
         edit: {
-          id: "code-davinic-edit-001",
+          id: "code-davinci-edit-001",
         },
       }
     }

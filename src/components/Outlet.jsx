@@ -1,5 +1,6 @@
 import { SpinnerCircular } from 'spinners-react';
 import { useAtom } from 'jotai';
+import { atomWithObservable } from 'jotai/utils';
 import { promptAtom, promptResponseAtom, isFetchingAtom } from '../atoms';
 import { lowlight } from 'lowlight';
 
@@ -43,17 +44,19 @@ const OutputCard = ({className}) => {
 }
 
 
-async function detectLanguage(input) {
-  let lang = lowlight.highlightAuto(input)
-  console.log("detetLanguage")
-  console.log(lang)
-  return lang
-}
-
+   
 const CodeOutput = ({className}) => {
   console.log("## CodeOutput")
   const [ isFetching ] = useAtom(isFetchingAtom);
   const [ promptResponse ]= useAtom(promptResponseAtom);
+
+  // TODO Get the language detector to run...
+  const promptAtomObserver = atomWithObservable(() => {
+    console.log("## promptAtomObserver")
+    let lang = lowlight.highlightAuto(promptResponse);
+    console.log("detected lang:", lang)
+  });
+
   return (
     <div className="text-sm p-2 bg-black rounded-b-lg">
       { isFetching &&
