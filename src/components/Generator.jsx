@@ -61,7 +61,7 @@ const GeneratorInput = ({ className }) => {
         />
         <button
           type="submit"
-          className="inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 active:bg-green-800 focus:outline-none"
+          className="inline-flex items-center transition-colors rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 active:bg-green-800 focus:outline-none"
 
         >
             Generate

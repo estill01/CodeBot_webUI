@@ -27,7 +27,7 @@ const OutputCard = ({className}) => {
   const [ prompt, setPrompt ] = useAtom(promptAtom);
 
   return (
-    <div className='border border-slate-500 hover:border-emerald-700 rounded-lg drop-shadow-xl font-mono'>
+    <div className='border border-transparent transition-colors hover:border-emerald-700 rounded-lg drop-shadow-lg font-mono'>
       { prompt && 
         <div className='text-green-500 bg-slate-900 p-2 flex flex-row rounded-t-lg'>
           <span className='tracking-[-0.15em] font-extrabold mr-4'>&lt;/&gt;</span>
@@ -58,7 +58,7 @@ const CodeOutput = ({className}) => {
   });
 
   return (
-    <div className="text-sm p-2 bg-black rounded-b-lg">
+    <div className="text-sm p-4 bg-black bg-gradient-to-bl from-[#ffffff1a] to-transparent rounded-b-lg">
       { isFetching &&
         <SpinnerCircular size={50} thickness={100} speed={125} enabled={true} color="#36ad47" secondaryColor="rgba(0, 0, 0, 0.44)" className='justify-center self-center'/>
       }
