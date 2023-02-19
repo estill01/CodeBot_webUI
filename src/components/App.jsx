@@ -1,10 +1,11 @@
-import Navbar from './NavBar'
+import NavBar from './NavBar';
+import SidePanel from './SidePanel'
 import Outlet from './Outlet'
 
 const App = () => {
   return (
-    <div id="App" className="w-full h-screen flex flex-col">
-      <Navbar className='bg-slate-800 drop-shadow z-50'/>
+    <div id="App" className="w-full h-screen flex flex-row">
+      <SidePanel/>
       <Outlet className='flex-1'/>
     </div>
   )

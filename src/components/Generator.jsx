@@ -49,11 +49,11 @@ const GeneratorInput = ({ className }) => {
 
   return (
     <div id='GeneratorInput' className={`flex flex-row ${className}`}>
-      <form onSubmit={handleSubmit} ref={formRef} className='flex-1 flex'>
+      <form onSubmit={handleSubmit} ref={formRef} className='flex-1 flex active:outline-none'>
         <input
           type="text"
           name="prompt_input"
-          className='p-2 rounded-md border border-gray-600 flex-1 mr-2'
+          className='p-2 rounded-md border border-gray-600 flex-1 mr-2 hover:border-green-600 focus:border-green-600 focus:outline-none'
           ref={inputRef}
           onKeyPress={handleKeyPress}
           placeholder="What should I make?"

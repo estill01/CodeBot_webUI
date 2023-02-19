@@ -1,18 +1,15 @@
 import GeneratorInput from './Generator';
-import LogoBot from '../assets/logo_bot/logo_bot.png';
 
 const NavBar = ({ className }) => {
   return (
     <div id='NavBarPadding' className='h-16'>
       <div 
         id='NavBar' 
-        className={`fixed top-0 left-0 right-0 h-16 flex flex-row items-center text-white p-4 ${className}`}
+        className={`fixed top-0 left-0 right-0 h-16 flex flex-row items-center text-white p-4 bg-gradient-to-bl from-transparent to-[#00000057] ${className}`}
       >
-        <Logo/>
-        <div className='flex-1'>
-          <GeneratorInput className='mx-8'/>
+        <div className='w-1/5'>
+          <Logo/>
         </div>
-        <MenuArea/>
       </div>
     </div>
   )
@@ -37,3 +34,8 @@ const MenuArea = ({className}) => {
     </div>
   )
 }
+
+{/*        <div className='flex-1'>*/}
+          {/*<GeneratorInput className='mx-8'/>*/}
+        {/*</div>*/}
+

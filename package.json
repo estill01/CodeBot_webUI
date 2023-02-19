@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.2.0",
     "@tanstack/query-core": "^4.24.6",
     "dotenv": "^16.0.3",
     "jotai": "^2.0.2",
