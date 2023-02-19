@@ -49,6 +49,7 @@ const PanelHeader = ({className, title}) => {
   )
 }
 
+// TODO make this scroll when you get too many projects
 const ProjectsList = ({className}) => {
   const [ prompt ] = useAtom(promptAtom);
   return (
@@ -58,17 +59,25 @@ const ProjectsList = ({className}) => {
         { prompt &&
         <ProjectListItem prompt={prompt}/>
         }
+        <CreateNewProjectButton className='mt-4'/>
       </div>
     </>
   )
+}
 
+const CreateNewProjectButton = ({className}) => {
+  return (
+    <div className={`p-4 text-green-800 transition-colors text-center border rounded-sm border-green-900 cursor-pointer hover:bg-green-800 hover:text-green-400 active:bg-green-900 active:text-green-600 select-none ${className}`}>
+      + New Project
+    </div>
+  )
 }
 
 const ProjectListItem = ({className, prompt}) => {
   const [ isFetching ] = useAtom(isFetchingAtom);
 
   return (
-    <div className={`text-green-500 px-2 py-4 flex flex-row items-center transition-colors hover:bg-emerald-900 hover:text-green-300 active:bg-slate-900 hover:cursor-pointer select-none border border-green-500 rounded-sm ${className}`}>
+    <div className={`text-green-500 px-2 py-4 flex flex-row items-center transition-colors hover:bg-green-800 hover:text-green-400 hover:border-green-900 active:bg-green-900 active:text-green-600 hover:cursor-pointer select-none border border-green-500 rounded-sm ${className}`}>
       <div className='mr-3'>
       { isFetching &&
         <SpinnerCircular size={20} thickness={100} speed={125} enabled={true} color="#36ad47" secondaryColor="rgba(0, 0, 0, 0.44)" />
