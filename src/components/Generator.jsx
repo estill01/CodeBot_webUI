@@ -38,7 +38,7 @@ const GeneratorInput = ({ className }) => {
     inputRef.current.value = ""
 
     setIsFetching(true);
-    let response = await fetchOpenAI(prompt)
+    let response = await fetchOpenAI({prompt})
     setIsFetching(false);
     setPromptResponse(response)
 

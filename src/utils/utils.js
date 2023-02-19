@@ -6,7 +6,7 @@
 export const fetchOpenAI = async ({
   endpoint="https://api.openai.com/v1/completions",
   model="code-davinci-002",
-  max_tokens=2048,
+  max_tokens=100,
   prompt=""
 }) => {
   // const [isFetching, setIsFetching] = useAtom(isFetchingAtom);
@@ -29,7 +29,7 @@ export const fetchOpenAI = async ({
   });
   const data = await response.json();
   console.log("# OpenAI API response:", data);
-  console.log("# response:", data.choices[0].text);
+  // console.log("# response:", data.choices[0].text);
 
   // setIsFetching(false);
 
