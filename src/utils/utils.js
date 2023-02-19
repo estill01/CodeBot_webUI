@@ -2,7 +2,7 @@
 /*import { useAtom } from 'jotai';*/
 
 // TODO Refactor
-// export async function fetchOpenAI({
+// TODO Add Error Handling
 export const fetchOpenAI = async ({
   endpoint="https://api.openai.com/v1/completions",
   model="code-davinci-002",
@@ -12,6 +12,8 @@ export const fetchOpenAI = async ({
   // const [isFetching, setIsFetching] = useAtom(isFetchingAtom);
   // console.log("isFetching", isFetching);
   // setIsFetching(true);
+  console.log("# fetchOpenAI()");
+  console.log("prompt: ", prompt);
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {

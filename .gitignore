@@ -26,3 +26,4 @@ dist-ssr
 # Environment variables
 .env
 
+.dev_notes

@@ -34,7 +34,10 @@ const GeneratorInput = ({ className }) => {
     console.log("submitting")
     console.log(inputRef.current.value)
 
-    setPrompt(inputRef.current.value)
+    console.log("Prompt is: ", prompt);
+    await setPrompt(inputRef.current.value)
+    console.log("Prompt now: ", prompt);
+
     inputRef.current.value = ""
 
     setIsFetching(true);

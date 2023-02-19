@@ -2,8 +2,7 @@ import { useAtom } from 'jotai';
 import { promptAtom, promptResponseAtom, isFetchingAtom } from '../atoms';
 import GeneratorInput from './Generator';
 import OutputCard from './OutputCard';
-
-
+// import Terminal from './Terminal';
 
 
 // TODO Refactor - Iterate stored prompts/responses
@@ -22,3 +21,6 @@ const Outlet = ({className}) => {
   )
 }
 export default Outlet;
+
+
+

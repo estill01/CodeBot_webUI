@@ -1,26 +1,37 @@
 import { useState } from 'react';
 import { SpinnerCircular } from 'spinners-react';
 import { atom, useAtom } from 'jotai';
-import { promptAtom, isFetchingAtom, isPanelOpenAtom } from '../atoms';
-import { FaceIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons';
+import { 
+  promptAtom, 
+  isFetchingAtom, 
+  isPanelOpenAtom,
+  activeSidePanelSectionAtom,
+  SIDE_PANEL_SECTIONS,
+} from '../atoms';
+import { 
+  FaceIcon, 
+  GearIcon,
+  GlobeIcon,
+  RocketIcon,
+} from '@radix-ui/react-icons';
 import CodeGlyph from './utils/CodeGlyph';
 import Logo from './utils/Logo';
 import TogglePanelButton from './utils/TogglePanelButton';
 
-
 const SidePanel = ({className}) => {
-  const [ prompt ] = useAtom(promptAtom);
   return (
     <div className='flex flex-col w-1/5 bg-black border-r border-neutral-900 drop-shadow-[2px_0_3px_rgba(0,0,0,0.25)]'>
       <PanelBanner className=''/>
+      <PanelSectionHeader title='Dashboard'/>
       <ProjectsList/>
+      <PanelSectionHeader title='Marketplace'/>
       <PanelSectionHeader title='Account'/>
+      <PanelSectionHeader title='Configure'/>
     </div>
   )
 }
 export default SidePanel;
 
-    // <div className="flex items-center text-white p-4 bg-zinc-900 bg-gradient-to-bl from-transparent to-[#00000057]">
 const PanelBanner = ({className}) => {
   return (
     <div className="flex flex-row items-center text-white p-2 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
@@ -31,18 +42,36 @@ const PanelBanner = ({className}) => {
 }
 
 const PanelSectionHeader = ({className, title}) => {
+  const [ activeSectionAtom, setActiveSectionAtom ] = useAtom(activeSidePanelSectionAtom);
+
+
   const Icon = (name) => {
     switch(name) {
-      case 'Projects':
-        return <CodeGlyph/>
-      case 'Account':
+      case SIDE_PANEL_SECTIONS.account:
         return <FaceIcon className='w-5 h-5'/>
+      case SIDE_PANEL_SECTIONS.configs:
+        return <GearIcon className='w-5 h-5'/>
+      case SIDE_PANEL_SECTIONS.dashboard:
+        return <RocketIcon className='w-5 h-5'/>
+      case SIDE_PANEL_SECTIONS.marketplace:
+        return <GlobeIcon className='w-5 h-5'/>
+      case SIDE_PANEL_SECTIONS.projects:
+        return <CodeGlyph/>
       default:
         return <CodeGlyph/>
     }
   }
+
+  const inactiveStyles="bg-zinc-900 text-zinc-500"
+  const activeStyles="bg-zinc-800 text-zinc-300"
+  const baseStyles='p-4 border-t border-t-zinc-800 font-bold flex flex-row items-center hover:cursor-pointer hover:text-zinc-300 hover:bg-zinc-800 active:bg-zinc-900 active:text-zinc-600 select-none'
+  let styles= activeSectionAtom === title ? baseStyles + ` ${activeStyles}` : baseStyles + ` ${inactiveStyles}`
+
   return (
-    <div className='text-zinc-500 bg-zinc-900 p-4 border-t border-t-zinc-800 font-bold flex flex-row items-center hover:cursor-pointer hover:text-zinc-300 hover:bg-zinc-800 active:bg-zinc-900 active:text-zinc-600 select-none'>
+    <div 
+    onClick={() => setActiveSectionAtom(title)}
+    className={styles}
+    >
       { Icon(title) }
       <div className="ml-3 flex-1">{title}</div>
     </div>
@@ -56,10 +85,10 @@ const ProjectsList = ({className}) => {
     <>
       <PanelSectionHeader title='Projects'/>
       <div className='flex-1 px-2 pt-3'>
+        <CreateNewProjectButton className='mb-4'/>
         { prompt &&
         <ProjectListItem prompt={prompt}/>
         }
-        <CreateNewProjectButton className='mt-4'/>
       </div>
     </>
   )
