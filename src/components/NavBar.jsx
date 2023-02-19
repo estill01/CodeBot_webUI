@@ -3,7 +3,7 @@ import LogoBot from '../assets/logo_bot/logo_bot.png';
 
 const NavBar = ({ className }) => {
   return (
-    <div id='NavBarPadding' className='h-16 z-50'>
+    <div id='NavBarPadding' className='h-16'>
       <div 
         id='NavBar' 
         className={`fixed top-0 left-0 right-0 h-16 flex flex-row items-center text-white p-4 ${className}`}
@@ -25,7 +25,7 @@ const Logo = ({className}) => {
       <div className='my-auto mr-2 text-[#00f100] font-medium tracking-[-0.1em]'>
         &lt;/&gt;
       </div>
-      <div className='my-auto font-semibold'>Code<span className='font-normal'>Bot</span></div>
+      <div className='my-auto font-semibold'>Code<span className='font-normal'>Bot.ai</span></div>
     </div>
   )
 }
