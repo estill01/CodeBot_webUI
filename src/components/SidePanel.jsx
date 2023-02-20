@@ -64,7 +64,7 @@ const PanelSectionHeader = ({className, title}) => {
 
   const inactiveStyles="bg-zinc-900 text-zinc-500"
   const activeStyles="bg-zinc-800 text-zinc-300"
-  const baseStyles='p-4 border-t border-t-zinc-800 font-bold flex flex-row items-center hover:cursor-pointer hover:text-zinc-300 hover:bg-zinc-800 active:bg-zinc-900 active:text-zinc-600 select-none'
+  const baseStyles='transition-colors p-4 border-t border-t-zinc-800 font-bold flex flex-row items-center hover:cursor-pointer hover:text-zinc-300 hover:bg-zinc-800 active:bg-zinc-900 active:text-zinc-600 select-none'
   let styles= activeSectionAtom === title ? baseStyles + ` ${activeStyles}` : baseStyles + ` ${inactiveStyles}`
 
   return (
