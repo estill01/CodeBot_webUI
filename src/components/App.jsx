@@ -28,5 +28,3 @@ const App = () => {
   )
 }
 export default App
-
-            // <TogglePanelButton className='flex self-baseline mt-6 border-neutral-700' color="#004502"/>

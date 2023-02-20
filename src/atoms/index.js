@@ -1,11 +1,7 @@
 import { atom } from 'jotai';
 
-export const promptAtom = atom("");
-export const promptResponseAtom = atom("");
-
-export const isFetchingAtom = atom(false);
+// Primary UI-Structure Elements
 export const isPanelOpenAtom = atom(true);
-
 export const SIDE_PANEL_SECTIONS= {
   account: "Account",
   configs: "Configure",
@@ -16,11 +12,15 @@ export const SIDE_PANEL_SECTIONS= {
 }
 export const activeSidePanelSectionAtom = atom(SIDE_PANEL_SECTIONS.projects);
 
-/*export const promptAtom = atom(*/
-  /*(get) => get(_promptAtom),*/
-  /*(get, set, value) => {*/
-    /*set(_promptAtom, value);*/
-  /*}*/
-/*);*/
+// Config Prompt / Info Cards
+export const isVisibleOSSCardAtom= atom(true);
+export const isVisibleOpenAICardAtom= atom(true);
+export const isVisibleMetaMaskCardAtom= atom(true);
 
-export const promptsAtom = atom([]);
+// Code Generation
+export const promptAtom = atom("");
+export const promptResponseAtom = atom("");
+
+// Data Fetching
+export const isFetchingAtom = atom(false);
+

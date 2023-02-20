@@ -1,10 +1,17 @@
 import { useAtom } from 'jotai';
-import { promptAtom, promptResponseAtom, isFetchingAtom } from '../atoms';
+import { 
+  promptAtom, 
+  promptResponseAtom, 
+  isFetchingAtom,
+  isVisibleOSSCardAtom,
+  isVisibleOpenAICardAtom,
+  isVisibleMetaMaskCardAtom,
+} from '../atoms';
 import GeneratorInput from './Generator';
 import OutputCard from './OutputCard';
 import { 
-  AddOpenAICard, 
-  AddMetaMaskCard,
+  OpenAICard, 
+  MetaMaskCard,
   OSSCard,
 } from './configs';
 // import Terminal from './Terminal';
@@ -17,13 +24,24 @@ const Outlet = ({className}) => {
 
   return (
     <div className={`flex-1 flex flex-col h-auto p-6 overflow-x-hidden ${className}`}>
-      <GeneratorInput className='mb-6'/>
+      <GeneratorInput className='mb-4'/>
+
       { prompt &&
         <OutputCard/>
       }
-      <OSSCard className='mt-6'/>
-      <AddOpenAICard className='mt-4'/>
-      <AddMetaMaskCard className='mt-4'/>
+
+      { isVisibleOSSCardAtom &&
+        <OSSCard className='mt-6'/>
+      }
+
+      { isVisibleOpenAICardAtom &&
+        <OpenAICard className='mt-4'/>
+      }
+
+      { isVisibleMetaMaskCardAtom &&
+        <MetaMaskCard className='mt-4'/>
+      }
+
     </div>
   )
 }

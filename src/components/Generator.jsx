@@ -59,7 +59,7 @@ const GeneratorInput = ({ className }) => {
           className='p-2 rounded-md border border-gray-600 flex-1 mr-2 hover:border-green-600 focus:border-green-600 focus:outline-none'
           ref={inputRef}
           onKeyPress={handleKeyPress}
-          placeholder="What should I make?"
+          placeholder="What can I make for you?"
           autoComplete="off"
         />
         <button

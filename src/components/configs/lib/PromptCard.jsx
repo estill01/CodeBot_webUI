@@ -1,22 +1,14 @@
-export const OSSCard = ({className}) => {
-  return (
-    <PromptCard className={className}>
-      <div className='flex flex-col items-center mt-2'>
-        <div className=''>
-          CodeBot is Open Source
-        </div>
-        <div className='text-sm text-zinc-400'>
-          Don't Trust. Verify. 
-        </div>
-      </div>
-    </PromptCard>
-  )
-}
+import CloseButton from '../../utils/CloseButton';
 
-const PromptCard = ({children, className}) => {
+const PromptCard = ({children, className, stateAtom}) => {
   return (
-    <div className={`flex flex-col items-center justify-center border border-zinc-700 bg-zinc-900 rounded-md p-6 drop-shadow-lg ${className}`}>
-      {children}
+    <div className={`border border-zinc-700 bg-zinc-900 rounded-md pb-6 drop-shadow-lg ${className}`}>
+      <div className='pt-2 pr-2 grid justify-end'>
+        <CloseButton stateAtom={stateAtom}/>
+      </div>
+      <div className='flex flex-col items-center justify-center px-6'>
+        {children}
+      </div>
     </div>
   )
 }
