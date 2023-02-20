@@ -31,7 +31,7 @@ const Outlet = ({className}) => {
       }
 
       { isVisibleOSSCardAtom &&
-        <OSSCard className='mt-6'/>
+        <OSSCard className='mt-4'/>
       }
 
       { isVisibleOpenAICardAtom &&

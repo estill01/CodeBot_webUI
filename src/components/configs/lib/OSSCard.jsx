@@ -6,7 +6,7 @@ import { OpenInNewWindowIcon } from '@radix-ui/react-icons';
 
 export const OSSCard = ({className}) => {
   return (
-    <PromptCard className={className} stateAtom={isVisibleOSSCardAtom}>
+    <PromptCard className={className} stateAtom={isVisibleOSSCardAtom} closeText="Let's Rock">
       <div className='flex flex-col items-center mt-2'>
 
     
@@ -18,7 +18,7 @@ export const OSSCard = ({className}) => {
           </div>
         </div>
 
-        <div className='mt-2 font-semibold items-center flex flex-col items-center'>
+        <div className='mt-2 font-semibold text-xl items-center flex flex-col items-center'>
           <div>
             Code<span className='font-normal'>Bot</span> is AI to build complete software 
           </div>
