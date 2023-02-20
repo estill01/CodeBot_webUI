@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@metamask/sdk": "^0.1.0",
     "@radix-ui/react-icons": "^1.2.0",
     "@tanstack/query-core": "^4.24.6",
     "dotenv": "^16.0.3",
@@ -19,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-textarea-autosize": "^8.4.0",
     "spinners-react": "^1.0.7",
+    "vite-plugin-svgr": "^2.4.0",
     "xterm-addon-fit": "^0.7.0",
     "xterm-for-react-18": "^1.0.28"
   },
