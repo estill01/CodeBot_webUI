@@ -4,7 +4,7 @@ import Logo from '../../utils/Logo';
 import CodeGlyph from '../../utils/CodeGlyph';
 import { OpenInNewWindowIcon } from '@radix-ui/react-icons';
 
-export const OSSCard = ({className}) => {
+export const CodeBotCard = ({className}) => {
   return (
     <PromptCard className={className} stateAtom={isVisibleOSSCardAtom} closeText="Let's Rock">
       <div className='flex flex-col items-center mt-2'>

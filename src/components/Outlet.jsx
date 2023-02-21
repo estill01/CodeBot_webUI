@@ -13,8 +13,8 @@ import OutputCard from './OutputCard';
 import { 
   OpenAICard, 
   MetaMaskCard,
-  OSSCard,
-} from './configs';
+  CodeBotCard,
+} from './cards';
 // import Terminal from './Terminal';
 
 // TODO Refactor - Iterate stored prompts/responses
@@ -36,7 +36,7 @@ const Outlet = ({className}) => {
       }
 
       { isVisibleOSSCard &&
-        <OSSCard className='mt-4'/>
+        <CodeBotCard className='mt-4'/>
       }
 
       { isVisibleOpenAICard && !hasKeyOpenAI &&
