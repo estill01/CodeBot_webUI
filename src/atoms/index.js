@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 // #######################
 //  PRIMARY UI STRUCTURES
@@ -34,8 +35,8 @@ export const isFetchingAtom = atom(false);
 // #######################
 
 // OpenAI
-export const hasKeyOpenAIAtom = atom(false);
-export const keyOpenAIAtom = atom("");
+export const hasKeyOpenAIAtom = atomWithStorage('hasKeyOpenAI', false);
+export const keyOpenAIAtom = atomWithStorage('keyOpenAI', "");
 
 
 // #######################

@@ -45,7 +45,7 @@ const GeneratorBar = ({ className }) => {
     console.log(refInput.current.value)
 
     console.log("Prompt is: ", prompt);
-    await setPrompt(refInput.current.value)
+    setPrompt(refInput.current.value)
     console.log("Prompt now: ", prompt);
 
     refInput.current.value = ""

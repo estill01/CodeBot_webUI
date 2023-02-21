@@ -7,6 +7,7 @@ import {
   isVisibleOpenAICardAtom,
   isVisibleMetaMaskCardAtom,
   hasKeyOpenAIAtom,
+  keyOpenAIAtom,
 } from '../../atoms';
 import GeneratorBar from './GeneratorBar';
 import { 
@@ -26,6 +27,8 @@ const Outlet = ({className}) => {
   const [ isVisibleOpenAICard ] = useAtom(isVisibleOpenAICardAtom);
   const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
+
+  const [ keyOpenAI ] = useAtom(keyOpenAIAtom);
 
   return (
     <div className={`flex-1 flex flex-col h-auto p-6 overflow-x-hidden ${className}`}>
