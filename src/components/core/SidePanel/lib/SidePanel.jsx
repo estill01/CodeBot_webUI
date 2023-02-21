@@ -7,23 +7,28 @@ import {
   isPanelOpenAtom,
   activeSidePanelSectionAtom,
   SIDE_PANEL_SECTIONS,
-} from '../../atoms';
+} from '../../../../atoms';
 import { 
   FaceIcon, 
   GearIcon,
   GlobeIcon,
   RocketIcon,
 } from '@radix-ui/react-icons';
-import CodeGlyph from '../utils/CodeGlyph';
-import Logo from '../utils/Logo';
-import TogglePanelButton from '../utils/TogglePanelButton';
+import CodeGlyph from '../../../utils/CodeGlyph';
+import Logo from '../../../utils/Logo';
+import TogglePanelButton from '../../../utils/TogglePanelButton';
+import { PanelSearchBar } from './PanelSearchBar';
 
-const SidePanel = ({className}) => {
+
+
+export const SidePanel = ({className}) => {
   return (
     <div className='flex flex-col w-1/5 bg-black border-r border-neutral-900 drop-shadow-[2px_0_3px_rgba(0,0,0,0.25)]'>
       <PanelBanner className=''/>
       
-      <PanelSearchSection className=''/>
+      <div className='p-1.5'>
+        <PanelSearchBar className=''/>
+      </div>
 
       <PanelSectionHeader title='Dashboard'/>
       <ProjectsList/>
@@ -33,7 +38,6 @@ const SidePanel = ({className}) => {
     </div>
   )
 }
-export default SidePanel;
 
 const PanelBanner = ({className}) => {
   return (
@@ -43,7 +47,6 @@ const PanelBanner = ({className}) => {
     </div>
   )
 }
-
 
 const PanelSearchSection = ({className}) => {
   return (

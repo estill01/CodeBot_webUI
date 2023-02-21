@@ -1,4 +1,4 @@
-import SidePanel from './SidePanel'
+import { SidePanel } from './SidePanel'
 import Outlet from './Outlet'
 import TogglePanelButton from '../utils/TogglePanelButton'
 import { useAtom } from 'jotai'

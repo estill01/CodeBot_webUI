@@ -83,7 +83,7 @@ const GeneratorBar = ({ className }) => {
             onKeyPress={handleKeyPress}
             onFocus={handleFocus}
             onBlur={handlBlur}
-            placeholder="What should I code for you?"
+            placeholder="What should I code?"
             autoComplete="off"
           />
 
