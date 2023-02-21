@@ -1,37 +1,29 @@
 import { useAtom } from 'jotai';
+import { Page } from './Page';
 import { 
   promptAtom, 
-  promptResponseAtom, 
-  isFetchingAtom,
   isVisibleCodeBotCardAtom,
   isVisibleOpenAICardAtom,
   isVisibleMetaMaskCardAtom,
   hasKeyOpenAIAtom,
-  keyOpenAIAtom,
-} from '../../atoms';
-import GeneratorBar from './GeneratorBar';
+} from '../../../atoms';
+import GeneratorBar from '../../core/GeneratorBar';
 import { 
   OpenAICard, 
   MetaMaskCard,
   CodeBotCard,
   OutputCard,
-} from '../cards';
-// import Terminal from './Terminal';
+} from '../../cards';
 
 // TODO Refactor - Iterate stored prompts/responses
-const Outlet = ({className}) => {
-  const [ isFetching ] = useAtom(isFetchingAtom);
-  const [ promptResponse, _ ]= useAtom(promptResponseAtom);
-  const [ prompt, setPrompt ] = useAtom(promptAtom);
+export const ProjectsPage = ({className}) => {
+  const [ prompt ] = useAtom(promptAtom);
   const [ isVisibleCodeBotCard ] = useAtom(isVisibleCodeBotCardAtom);
   const [ isVisibleOpenAICard ] = useAtom(isVisibleOpenAICardAtom);
-  const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
-
-  const [ keyOpenAI ] = useAtom(keyOpenAIAtom);
-
+  const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   return (
-    <div className={`flex-1 flex flex-col h-auto p-6 overflow-x-hidden ${className}`}>
+    <Page className='p-6'>
       <GeneratorBar className='mb-4'/>
 
       { prompt &&
@@ -50,7 +42,6 @@ const Outlet = ({className}) => {
         <MetaMaskCard className='mt-4'/>
       }
 
-    </div>
+    </Page>
   )
 }
-export default Outlet;

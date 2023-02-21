@@ -1,5 +1,5 @@
 import { SidePanel } from './SidePanel'
-import Outlet from './Outlet'
+import { ProjectsPage } from '../pages'
 import TogglePanelButton from '../utils/TogglePanelButton'
 import { useAtom } from 'jotai'
 import { isPanelOpenAtom } from '../../atoms'
@@ -12,16 +12,17 @@ const App = () => {
     <div id="App" className="w-full h-screen flex flex-row">
       { isPanelOpen && <SidePanel/> }
       {!isPanelOpen && 
-        <div className='flex flex-col'>
-          <div className='h-16 flex flex-col'>
-            <div className='flex-1'/>
-            <TogglePanelButton className='flex self-baseline mt-6 border-neutral-700' color="grey" hoverColor="green"/>
-            <div className='flex-1'/>
-          </div>
-          <div className='flex-1'/>
-        </div>
+      <div className='w-6'>
+        <TogglePanelButton 
+        className='absolute top-0 left-0 ml-2 mt-8 border-neutral-700 flex' 
+        color="grey" 
+        hoverColor="green"
+        />
+      </div>
       }
-      <Outlet className='flex-1'/>
+
+      <ProjectsPage className='flex-1'/>
+
     </div>
   )
 }
