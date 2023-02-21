@@ -17,7 +17,7 @@ export const MetaMaskCard = ({className}) => {
           Boost Performance With Vertua Market 
         </div>
         <div className='text-sm text-zinc-400'>
-          Access the Vertua AI Services Market and sell what you create
+          Integrate new AI capabilities, and sell what you create
         </div>
       </div>
 

@@ -22,6 +22,9 @@ const SidePanel = ({className}) => {
   return (
     <div className='flex flex-col w-1/5 bg-black border-r border-neutral-900 drop-shadow-[2px_0_3px_rgba(0,0,0,0.25)]'>
       <PanelBanner className=''/>
+      
+      <PanelSearchSection className=''/>
+
       <PanelSectionHeader title='Dashboard'/>
       <ProjectsList/>
       <PanelSectionHeader title='Marketplace'/>
@@ -37,6 +40,15 @@ const PanelBanner = ({className}) => {
     <div className="flex flex-row items-center text-white p-2 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
       <Logo className='flex-1'/>
       <TogglePanelButton/>
+    </div>
+  )
+}
+
+
+const PanelSearchSection = ({className}) => {
+  return (
+    <div className={`${className} flex px-1 py-2`}>
+      <input type="text" className='px-2 py-1 text-sm outline-none flex-1 rounded-md' placeholder='Search..'/>
     </div>
   )
 }
@@ -96,7 +108,7 @@ const ProjectsList = ({className}) => {
 
 const CreateNewProjectButton = ({className}) => {
   return (
-    <div className={`p-4 text-green-800 transition-colors text-center border rounded-sm border-green-900 cursor-pointer hover:bg-green-800 hover:text-green-400 active:bg-green-900 active:text-green-600 select-none ${className}`}>
+    <div className={`py-2 px-4 text-green-800 transition-colors text-center border rounded-sm border-green-900 cursor-pointer hover:bg-green-800 hover:text-green-400 active:bg-green-900 active:text-green-600 select-none ${className}`}>
       + New Project
     </div>
   )

@@ -3,17 +3,17 @@
 
 // TODO Refactor
 // TODO Add Error Handling
+
+
 export const fetchOpenAI = async ({
   endpoint="https://api.openai.com/v1/completions",
   model="code-davinci-002",
   max_tokens=100,
   prompt=""
 }) => {
-  // const [isFetching, setIsFetching] = useAtom(isFetchingAtom);
-  // console.log("isFetching", isFetching);
-  // setIsFetching(true);
   console.log("# fetchOpenAI()");
   console.log("prompt: ", prompt);
+
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
@@ -29,14 +29,29 @@ export const fetchOpenAI = async ({
       temperature: 0.5
     })
   });
+
   const data = await response.json();
   console.log("# OpenAI API response:", data);
+
+  return data.choices[0].text;
+};
+
+
+
+
+
+
+  // const [isFetching, setIsFetching] = useAtom(isFetchingAtom);
+  // console.log("isFetching", isFetching);
+  // setIsFetching(true);
+
   // console.log("# response:", data.choices[0].text);
 
   // setIsFetching(false);
 
-  return data.choices[0].text;
-};
+
+
+
 
 /*openai.generate.code.fast({ prompt: "const foo = " }).then(console.log);*/
 /*openai.generate.code.good()*/

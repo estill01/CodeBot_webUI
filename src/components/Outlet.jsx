@@ -6,6 +6,7 @@ import {
   isVisibleOSSCardAtom,
   isVisibleOpenAICardAtom,
   isVisibleMetaMaskCardAtom,
+  hasKeyOpenAIAtom,
 } from '../atoms';
 import GeneratorInput from './Generator';
 import OutputCard from './OutputCard';
@@ -21,6 +22,10 @@ const Outlet = ({className}) => {
   const [ isFetching ] = useAtom(isFetchingAtom);
   const [ promptResponse, _ ]= useAtom(promptResponseAtom);
   const [ prompt, setPrompt ] = useAtom(promptAtom);
+  const [ isVisibleOSSCard ] = useAtom(isVisibleOSSCardAtom);
+  const [ isVisibleOpenAICard ] = useAtom(isVisibleOpenAICardAtom);
+  const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
+  const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
 
   return (
     <div className={`flex-1 flex flex-col h-auto p-6 overflow-x-hidden ${className}`}>
@@ -30,15 +35,15 @@ const Outlet = ({className}) => {
         <OutputCard/>
       }
 
-      { isVisibleOSSCardAtom &&
+      { isVisibleOSSCard &&
         <OSSCard className='mt-4'/>
       }
 
-      { isVisibleOpenAICardAtom &&
+      { isVisibleOpenAICard && !hasKeyOpenAI &&
         <OpenAICard className='mt-4'/>
       }
 
-      { isVisibleMetaMaskCardAtom &&
+      { isVisibleMetaMaskCard &&
         <MetaMaskCard className='mt-4'/>
       }
 

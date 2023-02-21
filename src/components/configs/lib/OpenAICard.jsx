@@ -1,5 +1,9 @@
 import PromptCard from './PromptCard';
-import { isVisibleOpenAICardAtom } from '../../../atoms';
+import { 
+  isVisibleOpenAICardAtom,
+  hasKeyOpenAIAtom,
+  keyOpenAIAtom,
+} from '../../../atoms';
 import { ReactComponent as OpenAILogo } from '../../../assets/openai.svg';
 
 export const OpenAICard = ({className}) => {
