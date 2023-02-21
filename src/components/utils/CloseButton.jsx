@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai';
 
-const CloseButton = ({className, refParent, stateAtom}) => {
+const CloseButton = ({className, refParent, refContent, stateAtom}) => {
   const [state, setState] = useAtom(stateAtom);
 
   return (
@@ -16,9 +16,9 @@ const CloseButton = ({className, refParent, stateAtom}) => {
       console.log("refParent: ", refParent);
       console.log("refParent.current: ", refParent.current);
 
+      refContent.current.style.opacity = '0';
       refParent.current.className = `h-[0em] min-h-[0em] mt-0 ${refParent.current.className}`;
       refParent.current.style.opacity = '0';
-
 
     }}
     >

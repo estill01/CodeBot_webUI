@@ -1,32 +1,32 @@
 import { useRef, forwardRef } from 'react';
 import CloseButton from '../../utils/CloseButton';
 
-
 const PromptCard = ({children, className, stateAtom, closeText='Dismiss'}) => {
-// const PromptCard = forwardRef(function PromptCard(props, ref) {
-// const {children, className, stateAtom, closeText='Dismiss'} = props;
-
   const refCard = useRef(null);
-
-  //console.log("# PromptCard");
-  // console.log("ref: ", ref);
-
+  const refContent = useRef(null);
   return (
     <div 
-    className={`border border-zinc-700 bg-zinc-900 rounded-md drop-shadow-lg min-h-[20rem] h-80 transition-all duration-700 ${className}`}
+    className={`border flex flex-col border-zinc-700 bg-zinc-900 rounded-md drop-shadow-lg min-h-[20rem] h-80 transition-all duration-500 ${className}`}
     ref={refCard}
     >
-      <div className='pt-2 pr-2 grid justify-end'>
-        <CloseButton stateAtom={stateAtom} refParent={refCard}/>
+      <div className='pt-2 pr-2 absolute top-0 right-0'>
+        <CloseButton 
+          stateAtom={stateAtom} 
+          refParent={refCard}
+          refContent={refContent}
+        />
       </div>
 
-      <div className='flex flex-col items-center justify-center px-6'>
+      <div 
+        className='flex-1 flex flex-col items-center justify-center px-6 bg-yellow transition-opacity duration-200' 
+        ref={refContent}>
         {children}
       </div>
 
-      <div className='align-middle pt-5 pb-4 transition-colors text-zinc-600 text-xs text-center hover:text-zinc-500 active:text-zinc-700 cursor-pointer select-none'>
+      <div className='pb-4 transition-colors text-zinc-600 text-xs text-center hover:text-zinc-500 active:text-zinc-700 cursor-pointer select-none'>
         {closeText}
       </div>
+
     </div>
   )
 }
