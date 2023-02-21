@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai';
 
-const CloseButton = ({className, stateAtom}) => {
+const CloseButton = ({className, refParent, stateAtom}) => {
   const [state, setState] = useAtom(stateAtom);
 
   return (
@@ -8,10 +8,18 @@ const CloseButton = ({className, stateAtom}) => {
     className={`grid place-content-center text-lg text-zinc-700 h-6 w-6 border border-zinc-800 rounded-sm transition-colors hover:bg-zinc-800 hover:text-zinc-600 hover:cursor-pointer active:bg-zinc-900 active:text-zinc-800 select-none ${className}`}
     onClick={() => {
       console.log("clicked CloseButton");
-      console.log("state atom: ", stateAtom);
-      console.log("state - was: ", state);
-      setState(false)
-      console.log("state - now: ", state);
+      // console.log("state atom: ", stateAtom);
+      // console.log("state - was: ", state);
+
+      // refParent.current.style.opacity = '0';
+
+      console.log("refParent: ", refParent);
+      console.log("refParent.current: ", refParent.current);
+
+      refParent.current.className = `h-[0em] min-h-[0em] mt-0 ${refParent.current.className}`;
+      refParent.current.style.opacity = '0';
+
+
     }}
     >
       <code className='leading-6 font-mono text-center mb-[0.1em]'>x</code>
