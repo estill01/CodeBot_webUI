@@ -1,19 +1,21 @@
 import { useRef, forwardRef } from 'react';
 import CloseButton from '../../utils/CloseButton';
 
-const PromptCard = ({children, className, stateAtom, bottomText='Dismiss'}) => {
-  const refCard = useRef(null);
+//const PromptCard = ({children, className, stateAtom, bottomText='Dismiss'}) => {
+
+const PromptCard = forwardRef((props, ref) => {
+  const {children, className, stateAtom, bottomText='Dismiss'} = props;
   const refContent = useRef(null);
 
   return (
     <div 
-    className={`border flex flex-col border-zinc-700 bg-zinc-900 rounded-md drop-shadow-lg min-h-[20rem] h-80 transition-all duration-500 ${className}`}
-    ref={refCard}
+    className={`border flex flex-col border-zinc-700 bg-zinc-900 rounded-md drop-shadow-lg min-h-[20rem] h-[20rem] transition-all duration-500 ${className}`}
+    ref={ref}
     >
       <div className='pt-2 pr-2 absolute top-0 right-0'>
         <CloseButton 
           stateAtom={stateAtom} 
-          refParent={refCard}
+          refParent={ref}
           refContent={refContent}
         />
       </div>
@@ -30,5 +32,5 @@ const PromptCard = ({children, className, stateAtom, bottomText='Dismiss'}) => {
       </div>
     </div>
   )
-}
+})
 export default PromptCard;
