@@ -23,7 +23,7 @@ export const isFetchingAtom = atom(false);
 // Config Prompt / Info Cards
 export const isVisibleOpenAICardAtom = atom(true);
 
-export const isVisibleOSSCardAtom = atom(true);
+export const isVisibleCodeBotCardAtom = atom(true);
 export const isVisibleMetaMaskCardAtom = atom(true);
 
 // Keys

@@ -1,12 +1,19 @@
+import { useRef } from 'react';
 import PromptCard from './PromptCard';
-import {isVisibleOSSCardAtom} from '../../../atoms';
+import {isVisibleCodeBotCardAtom} from '../../../atoms';
 import Logo from '../../utils/Logo';
 import CodeGlyph from '../../utils/CodeGlyph';
 import { OpenInNewWindowIcon } from '@radix-ui/react-icons';
 
 export const CodeBotCard = ({className}) => {
+  const refCard = useRef(null);
   return (
-    <PromptCard className={className} stateAtom={isVisibleOSSCardAtom} bottomText="Let's Rock">
+    <PromptCard 
+    className={className} 
+    stateAtom={isVisibleCodeBotCardAtom} 
+    bottomText="Let's Rock"
+    ref={refCard}
+    >
       <div className='flex flex-col items-center mt-2'>
 
     

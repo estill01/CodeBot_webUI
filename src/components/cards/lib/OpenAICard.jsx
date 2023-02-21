@@ -49,10 +49,9 @@ const APIKeyInputForm = ({refCard, className}) => {
     setTimeout(() => {
       refCard.current.className = `h-[0rem] ${refCard.current.className}`;
       refCard.current.style.opacity = '0';
+      setKeyOpenAI(refInput.current.value);
+      setHasKeyOpenAI(true);
     }, 1000)
-    
-    // setKeyOpenAI(refInput.current.value);
-    // setHasKeyOpenAI(true);
 
   }
 

@@ -3,7 +3,7 @@ import {
   promptAtom, 
   promptResponseAtom, 
   isFetchingAtom,
-  isVisibleOSSCardAtom,
+  isVisibleCodeBotCardAtom,
   isVisibleOpenAICardAtom,
   isVisibleMetaMaskCardAtom,
   hasKeyOpenAIAtom,
@@ -22,7 +22,7 @@ const Outlet = ({className}) => {
   const [ isFetching ] = useAtom(isFetchingAtom);
   const [ promptResponse, _ ]= useAtom(promptResponseAtom);
   const [ prompt, setPrompt ] = useAtom(promptAtom);
-  const [ isVisibleOSSCard ] = useAtom(isVisibleOSSCardAtom);
+  const [ isVisibleCodeBotCard ] = useAtom(isVisibleCodeBotCardAtom);
   const [ isVisibleOpenAICard ] = useAtom(isVisibleOpenAICardAtom);
   const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
@@ -35,7 +35,7 @@ const Outlet = ({className}) => {
         <OutputCard/>
       }
 
-      { isVisibleOSSCard &&
+      { isVisibleCodeBotCard &&
         <CodeBotCard className='mt-4'/>
       }
 

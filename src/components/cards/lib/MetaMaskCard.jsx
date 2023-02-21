@@ -1,12 +1,19 @@
+import { useRef } from 'react';
 import PromptCard from './PromptCard';
 import { isVisibleMetaMaskCardAtom } from '../../../atoms';
 import MetaMaskLogo from '../../../assets/metamask-fox.svg';
 import VertuaNetworkLogo from '../../../assets/vertua_network.png';
 
 export const MetaMaskCard = ({className}) => {
+  const refCard = useRef(null);
   console.log("MetaMaskCard, state atom: ", isVisibleMetaMaskCardAtom);
   return (
-    <PromptCard className={className} stateAtom={isVisibleMetaMaskCardAtom} bottomText="What's Vertua?">
+    <PromptCard 
+    className={className} 
+    stateAtom={isVisibleMetaMaskCardAtom} 
+    bottomText="What's Vertua?"
+    ref={refCard}
+    >
 
       <div className='flex flex-col items-center justify-center mb-2'>
         <div className='p-2 bg-white rounded-md border border-slate-400 drop-shadow-xl'>
