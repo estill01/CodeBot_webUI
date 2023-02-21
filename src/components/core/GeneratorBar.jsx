@@ -4,12 +4,12 @@ import {
   promptAtom, 
   promptResponseAtom, 
   isFetchingAtom,
-} from "../atoms";
+} from "../../atoms";
 import { LightningBoltIcon } from "@radix-ui/react-icons";
-import CodeGlyph from './utils/CodeGlyph';
+import CodeGlyph from '../utils/CodeGlyph';
 
 // ---- TMP ----
-import { fetchOpenAI } from "../utils/utils.js";
+import { fetchOpenAI } from "../../utils/utils.js";
 // -------------
 
 // TODO import api fetcher from utils
@@ -73,7 +73,7 @@ const GeneratorBar = ({ className }) => {
         onClick={doFocus}
         >
           <CodeGlyph 
-          className='w-6 h-6 text-gray-500 mr-1' 
+          className='w-6 h-6 text-gray-500 mr-2' 
           />
           <input
             type="text"

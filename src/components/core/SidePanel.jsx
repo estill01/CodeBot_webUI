@@ -7,16 +7,16 @@ import {
   isPanelOpenAtom,
   activeSidePanelSectionAtom,
   SIDE_PANEL_SECTIONS,
-} from '../atoms';
+} from '../../atoms';
 import { 
   FaceIcon, 
   GearIcon,
   GlobeIcon,
   RocketIcon,
 } from '@radix-ui/react-icons';
-import CodeGlyph from './utils/CodeGlyph';
-import Logo from './utils/Logo';
-import TogglePanelButton from './utils/TogglePanelButton';
+import CodeGlyph from '../utils/CodeGlyph';
+import Logo from '../utils/Logo';
+import TogglePanelButton from '../utils/TogglePanelButton';
 
 const SidePanel = ({className}) => {
   return (

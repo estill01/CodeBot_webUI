@@ -7,14 +7,14 @@ import {
   isVisibleOpenAICardAtom,
   isVisibleMetaMaskCardAtom,
   hasKeyOpenAIAtom,
-} from '../atoms';
+} from '../../atoms';
 import GeneratorBar from './GeneratorBar';
-import OutputCard from './OutputCard';
 import { 
   OpenAICard, 
   MetaMaskCard,
   CodeBotCard,
-} from './cards';
+  OutputCard,
+} from '../cards';
 // import Terminal from './Terminal';
 
 // TODO Refactor - Iterate stored prompts/responses

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider, createStore } from 'jotai'
-import App from './components/App'
+import App from './components/core/App'
 import './index.css'
 
 // const store = createStore()

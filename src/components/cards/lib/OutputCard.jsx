@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { promptAtom, promptResponseAtom, isFetchingAtom } from '../atoms';
+import { promptAtom, promptResponseAtom, isFetchingAtom } from '../../../atoms';
 import { SpinnerCircular } from 'spinners-react';
 import { useAtom } from 'jotai';
 import { atomWithObservable } from 'jotai/utils';
@@ -7,7 +7,7 @@ import { lowlight } from 'lowlight';
 import TextareaAutosize from 'react-textarea-autosize';
 
 
-const OutputCard = ({className}) => {
+export const OutputCard = ({className}) => {
   const [ prompt ] = useAtom(promptAtom);
   return (
     <div className='border border-transparent transition-colors hover:border-emerald-700 rounded-lg drop-shadow-lg font-mono'>
@@ -23,8 +23,6 @@ const OutputCard = ({className}) => {
     </div>
   )
 }
-export default OutputCard;
-
    
 const CodeOutput = ({className}) => {
   console.log("## CodeOutput")

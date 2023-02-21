@@ -1,8 +1,8 @@
 import SidePanel from './SidePanel'
 import Outlet from './Outlet'
-import TogglePanelButton from './utils/TogglePanelButton'
+import TogglePanelButton from '../utils/TogglePanelButton'
 import { useAtom } from 'jotai'
-import { isPanelOpenAtom } from '../atoms'
+import { isPanelOpenAtom } from '../../atoms'
 
 
 // TODO Fix how you're placing the toggle button
