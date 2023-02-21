@@ -6,7 +6,7 @@ import { OpenInNewWindowIcon } from '@radix-ui/react-icons';
 
 export const CodeBotCard = ({className}) => {
   return (
-    <PromptCard className={className} stateAtom={isVisibleOSSCardAtom} closeText="Let's Rock">
+    <PromptCard className={className} stateAtom={isVisibleOSSCardAtom} bottomText="Let's Rock">
       <div className='flex flex-col items-center mt-2'>
 
     

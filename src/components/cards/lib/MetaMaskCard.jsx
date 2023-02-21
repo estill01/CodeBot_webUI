@@ -6,7 +6,7 @@ import VertuaNetworkLogo from '../../../assets/vertua_network.png';
 export const MetaMaskCard = ({className}) => {
   console.log("MetaMaskCard, state atom: ", isVisibleMetaMaskCardAtom);
   return (
-    <PromptCard className={className} stateAtom={isVisibleMetaMaskCardAtom} closeText="What's Vertua?">
+    <PromptCard className={className} stateAtom={isVisibleMetaMaskCardAtom} bottomText="What's Vertua?">
 
       <div className='flex flex-col items-center justify-center mb-2'>
         <div className='p-2 bg-white rounded-md border border-slate-400 drop-shadow-xl'>
