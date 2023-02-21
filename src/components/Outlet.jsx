@@ -8,7 +8,7 @@ import {
   isVisibleMetaMaskCardAtom,
   hasKeyOpenAIAtom,
 } from '../atoms';
-import GeneratorInput from './Generator';
+import GeneratorBar from './GeneratorBar';
 import OutputCard from './OutputCard';
 import { 
   OpenAICard, 
@@ -29,7 +29,7 @@ const Outlet = ({className}) => {
 
   return (
     <div className={`flex-1 flex flex-col h-auto p-6 overflow-x-hidden ${className}`}>
-      <GeneratorInput className='mb-4'/>
+      <GeneratorBar className='mb-4'/>
 
       { prompt &&
         <OutputCard/>

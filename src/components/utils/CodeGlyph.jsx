@@ -1,6 +1,8 @@
 const CodeGlyph = ({className}) => {
   return (
-      <span className={`${className} tracking-[-0.15em] font-extrabold`}>&lt;/&gt;</span>
+      <div className={`${className} tracking-[-0.15em] font-bold`}>
+        &lt;<span className='font-normal'>/</span>&gt;
+      </div>
   )
 }
 export default CodeGlyph;

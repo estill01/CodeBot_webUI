@@ -13,12 +13,10 @@ const CloseButton = ({className, refParent, refContent, stateAtom}) => {
       console.log("refParent.current: ", refParent.current);
 
       refContent.current.style.opacity = '0';
+
+      // TODO Fix - not shrinking height due to style definition order in Tailwinds ; need to 
       refParent.current.className = `h-[0rem] ${refParent.current.className}`;
       refParent.current.style.minHeight='0rem';
-
-
-
-
       refParent.current.style.opacity = '0';
       refParent.current.style.marginTop= '0';
 

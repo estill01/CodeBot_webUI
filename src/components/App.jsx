@@ -1,4 +1,3 @@
-import NavBar from './NavBar';
 import SidePanel from './SidePanel'
 import Outlet from './Outlet'
 import TogglePanelButton from './utils/TogglePanelButton'
@@ -12,8 +11,7 @@ const App = () => {
   return (
     <div id="App" className="w-full h-screen flex flex-row">
       { isPanelOpen && <SidePanel/> }
-      {
-        !isPanelOpen && 
+      {!isPanelOpen && 
         <div className='flex flex-col'>
           <div className='h-16 flex flex-col'>
             <div className='flex-1'/>
