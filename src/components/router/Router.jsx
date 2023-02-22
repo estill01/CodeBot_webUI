@@ -8,6 +8,7 @@ import {
   ConfigsPage,
   ErrorPage,
 } from '../pages';
+import { PAGE } from '../../utils'; 
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +17,15 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
-        path: 'projects',
+        index: true,
         element: <ProjectsPage/>,
       },
       {
-        path: 'configs',
+        path: PAGE.projects,
+        element: <ProjectsPage/>,
+      },
+      {
+        path: PAGE.configs,
         element: <ConfigsPage/>,
       }
     ],

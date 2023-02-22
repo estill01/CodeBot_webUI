@@ -1,5 +1,6 @@
 import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
+import { PAGE } from '../utils';
 
 // #######################
 //  PRIMARY UI STRUCTURES
@@ -7,28 +8,22 @@ import { atomWithStorage } from 'jotai/utils';
 
 // Side Panel
 export const isPanelOpenAtom = atom(true);
-export const SIDE_PANEL_SECTIONS= {
-  account: "Account",
-  configs: "Configure",
-  dashboard: "Dashboard",
-  marketplace: "Marketplace",
-  projects: "Projects",
-  settings: "Settings",
-}
-export const activeSidePanelSectionAtom = atom(SIDE_PANEL_SECTIONS.projects);
 
-// Generator Bar 
 
 // #######################
 //  PRIMARY APP STATE 
 // #######################
 
+// Navigation
+export const activePageAtom = atom(PAGE.projects);
+
+// Data Fetching
+export const isFetchingAtom = atom(false);
+
 // Code Generation
 export const promptAtom = atom("");
 export const promptResponseAtom = atom("");
 
-// Data Fetching
-export const isFetchingAtom = atom(false);
 
 // #######################
 //  API KEYS

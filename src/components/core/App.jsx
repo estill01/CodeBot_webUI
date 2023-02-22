@@ -1,11 +1,9 @@
+import { Outlet } from 'react-router-dom';
 import { SidePanel } from './SidePanel';
 import { Page } from '../pages';
 import TogglePanelButton from '../utils/TogglePanelButton';
 import { useAtom } from 'jotai';
 import { isPanelOpenAtom } from '../../atoms';
-
-import { RouterProvider, Outlet } from 'react-router-dom';
-import { router } from '../router/Router.jsx';
 
 export const App = () => {
   const [isPanelOpen] = useAtom(isPanelOpenAtom)
@@ -21,10 +19,12 @@ export const App = () => {
         />
       </div>
       }
-      <Page>
+      <div className='flex-1 h-auto overflow-x-hidden'>
         <Outlet />
-      </Page>
+      </div>
     </div>
   )
 }
+
+//  TODO flex the Outlet directly (?)
 

@@ -8,8 +8,9 @@ import {
 import { LightningBoltIcon } from "@radix-ui/react-icons";
 import CodeGlyph from '../utils/CodeGlyph';
 
+
 // ---- TMP ----
-import { fetchOpenAI } from "../../utils/utils.js";
+import { fetchOpenAI } from "../../utils";
 // -------------
 
 // TODO import api fetcher from utils

@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai';
 import { Page } from './Page';
+import { PAGE } from '../../../utils';
 import { 
   promptAtom, 
   isVisibleCodeBotCardAtom,
@@ -22,8 +23,9 @@ export const ProjectsPage = ({className}) => {
   const [ isVisibleOpenAICard ] = useAtom(isVisibleOpenAICardAtom);
   const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
   const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
+
   return (
-    <div className='p-6'>
+    <Page className='p-6' page={PAGE.projects}>
       <GeneratorBar className='mb-4'/>
 
       { prompt &&
@@ -42,6 +44,6 @@ export const ProjectsPage = ({className}) => {
         <MetaMaskCard className='mt-4'/>
       }
 
-    </div>
+    </Page>
   )
 }

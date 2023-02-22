@@ -1,24 +1,19 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SpinnerCircular } from 'spinners-react';
 import { atom, useAtom } from 'jotai';
 import { 
   promptAtom, 
   isFetchingAtom, 
   isPanelOpenAtom,
-  activeSidePanelSectionAtom,
-  SIDE_PANEL_SECTIONS,
+  activePageAtom,
 } from '../../../../atoms';
-import { 
-  FaceIcon, 
-  GearIcon,
-  GlobeIcon,
-  RocketIcon,
-} from '@radix-ui/react-icons';
-import CodeGlyph from '../../../utils/CodeGlyph';
+import { PAGE } from '../../../../utils';
+import { Icon } from '../../../utils/Icon';
 import Logo from '../../../utils/Logo';
+
 import TogglePanelButton from '../../../utils/TogglePanelButton';
 import { PanelSearchBar } from './PanelSearchBar';
-
 
 
 export const SidePanel = ({className}) => {
@@ -30,11 +25,11 @@ export const SidePanel = ({className}) => {
         <PanelSearchBar className=''/>
       </div>
 
-      <PanelSectionHeader title='Dashboard'/>
+      <PanelSectionHeader title={PAGE.dashboard} url='dashboard'/>
       <ProjectsList/>
-      <PanelSectionHeader title='Marketplace'/>
-      <PanelSectionHeader title='Account'/>
-      <PanelSectionHeader title='Configure'/>
+      <PanelSectionHeader title={PAGE.marketplace} url='market'/>
+      <PanelSectionHeader title={PAGE.account} url='account'/>
+      <PanelSectionHeader title={PAGE.configs} url='configs'/>
     </div>
   )
 }
@@ -48,48 +43,28 @@ const PanelBanner = ({className}) => {
   )
 }
 
-const PanelSearchSection = ({className}) => {
-  return (
-    <div className={`${className} flex px-1 py-2`}>
-      <input type="text" className='px-2 py-1 text-sm outline-none flex-1 rounded-md' placeholder='Search..'/>
-    </div>
-  )
-}
 
-const PanelSectionHeader = ({className, title}) => {
-  const [ activeSectionAtom, setActiveSectionAtom ] = useAtom(activeSidePanelSectionAtom);
-
-
-  const Icon = (name) => {
-    switch(name) {
-      case SIDE_PANEL_SECTIONS.account:
-        return <FaceIcon className='w-5 h-5'/>
-      case SIDE_PANEL_SECTIONS.configs:
-        return <GearIcon className='w-5 h-5'/>
-      case SIDE_PANEL_SECTIONS.dashboard:
-        return <RocketIcon className='w-5 h-5'/>
-      case SIDE_PANEL_SECTIONS.marketplace:
-        return <GlobeIcon className='w-5 h-5'/>
-      case SIDE_PANEL_SECTIONS.projects:
-        return <CodeGlyph/>
-      default:
-        return <CodeGlyph/>
-    }
-  }
-
+const PanelSectionHeader = ({className, title, url}) => {
+  const [ activePage, setActivePage ] = useAtom(activePageAtom);
   const inactiveStyles="bg-zinc-900 text-zinc-500"
   const activeStyles="bg-zinc-800 text-zinc-300"
   const baseStyles='transition-colors p-4 border-t border-t-zinc-800 font-bold flex flex-row items-center hover:cursor-pointer hover:text-zinc-300 hover:bg-zinc-800 active:bg-zinc-900 active:text-zinc-600 select-none'
-  let styles= activeSectionAtom === title ? baseStyles + ` ${activeStyles}` : baseStyles + ` ${inactiveStyles}`
+  let styles = activePage === title ? baseStyles + ` ${activeStyles}` : baseStyles + ` ${inactiveStyles}`
+
+  const handleClick = (e) => {
+    setActivePage(title)
+  }
 
   return (
-    <div 
-    onClick={() => setActiveSectionAtom(title)}
+    <Link
+    to={`/${url}`}
+    onClick={handleClick}
     className={styles}
     >
-      { Icon(title) }
-      <div className="ml-3 flex-1">{title}</div>
-    </div>
+      <Icon name={title}/>
+      <div className="ml-3 flex-1">{title.charAt(0).toUpperCase()+title.slice(1)}</div>
+    </Link>
+
   )
 }
 
@@ -98,7 +73,7 @@ const ProjectsList = ({className}) => {
   const [ prompt ] = useAtom(promptAtom);
   return (
     <>
-      <PanelSectionHeader title='Projects'/>
+      <PanelSectionHeader title={PAGE.projects} url='projects'/>
       <div className='flex-1 px-2 pt-3'>
         <CreateNewProjectButton className='mb-4'/>
         { prompt &&

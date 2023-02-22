@@ -5,8 +5,6 @@ import {
   promptAtom, 
   isFetchingAtom, 
   isPanelOpenAtom,
-  activeSidePanelSectionAtom,
-  SIDE_PANEL_SECTIONS,
 } from '../../../../atoms';
 
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
