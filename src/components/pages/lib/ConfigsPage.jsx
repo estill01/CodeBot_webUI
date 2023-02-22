@@ -4,7 +4,9 @@ import { useAtom } from 'jotai';
 import { RESET } from 'jotai/utils';
 import { 
   Icon, 
-  OpenAIInsignia 
+  OpenAIInsignia,
+  VertuaNetworkInsignia,
+  MetaMaskInsignia,
 } from '../../utils';
 import { PAGE } from '../../../utils';
 import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
@@ -31,6 +33,8 @@ const ConnectedServices = ({className}) => {
   return (
     <div className='flex flex-col'>
       <ConfigItemOpenAI/>
+      <ConfigItemVertuaNetwork/>
+      <ConfigItemMetaMask/>
     </div>
   )
 }
@@ -39,7 +43,7 @@ const ConfigItem = ({className, label, status, logo, children}) => {
   return (
     <div className={`flex flex-row items-start ${className}`}>
       <div className='mr-6 flex flex-row items-center'>
-        {logo}
+        <div className='mr-4'>{logo}</div>
         <code>{label}</code>
         <StatusIndicator status={status}/>
       </div>
@@ -78,6 +82,33 @@ const KeyDisplay = ({className, apiKey}) => {
   )
 }
 
+const ConfigItemMetaMask = ({className}) => {
+  const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
+  return (
+    <ConfigItem 
+    label='MetaMask Connected'
+    status={hasKeyOpenAI}
+    logo={<MetaMaskInsignia size='small'/>}
+    className={`mb-4 ${className}`}
+    >
+    </ConfigItem>
+  )
+}
+
+
+const ConfigItemVertuaNetwork = ({className}) => {
+  const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
+  return (
+    <ConfigItem 
+    label='Vertua Network Account'
+    status={hasKeyOpenAI}
+    logo={<VertuaNetworkInsignia size='small'/>}
+    className={`mb-4 ${className}`}
+    >
+    </ConfigItem>
+  )
+}
+
 const ConfigItemOpenAI = ({className}) => {
   const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   const [ keyOpenAI, setKeyOpenAI ] = useAtom(keyOpenAIAtom);
@@ -112,10 +143,4 @@ const ConfigItemOpenAI = ({className}) => {
     </ConfigItem>
   )
 }
-
-const ConfigItemVertuaNetwork = ({className}) => {
-}
-
-
-
 

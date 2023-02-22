@@ -26,7 +26,8 @@ export const CodeBotInsignia = ({className}) => {
 
 
 import { ReactComponent as OpenAIGlyph } from '../../../assets/openai.svg';
-export const OpenAIInsignia = ({className, height='5', width='5'}) => {
+export const OpenAIInsignia = ({className, size='medium', height='5', width='5'}) => {
+  // TODO do small, medium, large, etc. versions
 
   return (
     <div className={`rounded-lg bg-[#74aa9b] p-[0.5em] border border-emerald-800 shadow-sm ${className}`}>
@@ -35,4 +36,24 @@ export const OpenAIInsignia = ({className, height='5', width='5'}) => {
   )
 }
 
+import VertuaNetworkLogo from '../../../assets/vertua_network.png';
+export const VertuaNetworkInsignia = ({className, size='medium', height='5', width='5'}) => {
+  // TODO do small, medium, large, etc. versions
 
+  return (
+    <div className={`p-2 bg-white rounded-md border border-slate-400 drop-shadow-xl ${className}`}>
+      <img src={VertuaNetworkLogo} alt='Vertua Network Logo' className={`w-${width} h-${height}`} />
+    </div>
+  )
+}
+
+import { ReactComponent as MetaMaskLogo } from '../../../assets/metamask-fox.svg';
+export const MetaMaskInsignia = ({className, size='medium', height='5', width='5'}) => {
+  // TODO do small, medium, large, etc. versions
+
+  return (
+    <div className={`p-2 bg-white rounded-md border border-slate-400 drop-shadow-xl ${className}`}>
+      <MetaMaskLogo className={`w-${width} h-${height}`} />
+    </div>
+  )
+}

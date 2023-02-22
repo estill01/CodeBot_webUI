@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import PromptCard from './PromptCard';
 import { isVisibleMetaMaskCardAtom } from '../../../atoms';
+import { VertuaNetworkInsignia } from '../../utils'
 import MetaMaskLogo from '../../../assets/metamask-fox.svg';
-import VertuaNetworkLogo from '../../../assets/vertua_network.png';
 
 export const MetaMaskCard = ({className}) => {
   const refCard = useRef(null);
@@ -16,10 +16,7 @@ export const MetaMaskCard = ({className}) => {
     >
 
       <div className='flex flex-col items-center justify-center mb-2'>
-        <div className='p-2 bg-white rounded-md border border-slate-400 drop-shadow-xl'>
-          <img src={VertuaNetworkLogo} alt='Vertua Network Logo' className='w-16 h-16' />
-        </div>
-    
+        <VertuaNetworkInsignia className='mb-2' />
         <div className='font-semibold text-center mt-2'>
           Boost Performance With Vertua Market 
         </div>
@@ -38,4 +35,6 @@ export const MetaMaskCard = ({className}) => {
     </PromptCard>
   )
 }
+
+
 
