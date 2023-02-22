@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import PromptCard from './PromptCard';
 import {isVisibleCodeBotCardAtom} from '../../../atoms';
-import { Logo, CodeGlyph } from '../../utils';
+import { CodeBotInsignia, CodeGlyph } from '../../utils';
 
 export const CodeBotCard = ({className}) => {
   const refCard = useRef(null);
@@ -14,14 +14,7 @@ export const CodeBotCard = ({className}) => {
     >
       <div className='flex flex-col items-center mt-2'>
 
-    
-        <div className='p-2 rounded-md bg-black border border-[#00f188] drop-shadow-lg select-none'>
-          <div className='text-[#00f100] text-[2.5em]'>
-            <span className='font-bold tracking-tight'>&lt;</span>
-            <span className='font-light tracking-tight'>/</span>
-            <span className='font-bold'>&gt;</span>
-          </div>
-        </div>
+        <CodeBotInsignia/>
 
         <div className='mt-2 font-semibold text-xl items-center flex flex-col items-center'>
           <div>
@@ -35,3 +28,6 @@ export const CodeBotCard = ({className}) => {
     </PromptCard>
   )
 }
+
+
+

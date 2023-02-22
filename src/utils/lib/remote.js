@@ -1,5 +1,6 @@
 /*import { isFetchingAtom } from '../atoms';*/
-/*import { useAtom } from 'jotai';*/
+import { useAtom } from 'jotai';
+import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../atoms';
 
 // TODO Refactor
 // TODO Add Error Handling
@@ -11,6 +12,17 @@ export const fetchOpenAI = async ({
   max_tokens=100,
   prompt=""
 }) => {
+
+  // TODO FIX - Need to look into Jotai aysnc stuff
+  const [hasKeyOpenAI] = useAtom(hasKeyOpenAIAtom);
+  const [keyOpenAI] = useAtom(keyOpenAIAtom);
+
+  if (!hasKeyOpenAI) {
+    // TODO Throw a modal or something to prompt for key
+    console.error("No OpenAI API Key");
+    return;
+  } 
+  
   console.log("# fetchOpenAI()");
   console.log("prompt: ", prompt);
 
@@ -18,7 +30,7 @@ export const fetchOpenAI = async ({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+      "Authorization": `Bearer ${keyOpenAI}`,
     },
     body: JSON.stringify({
       model: model,

@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Page } from './Page';
 import { useAtom } from 'jotai';
 import { RESET } from 'jotai/utils';
-import { Icon } from '../../utils';
+import { 
+  Icon, 
+  OpenAIInsignia 
+} from '../../utils';
 import { PAGE } from '../../../utils';
 import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
 import { KeyInputForm } from '../../forms';
-
 
 export const ConfigsPage = () => {
   return (
@@ -13,6 +16,9 @@ export const ConfigsPage = () => {
       <div className="flex flex-row items-center text-xl">
         <Icon name={PAGE.configs} className='mr-2 h-6 w-6' color='gray'/>
         <span className='font-semibold'>Configs</span>
+      </div>
+      <div className='mt-2 text-sm text-zinc-400'>
+        All Keys are stored on your local machine and are only used to interact with their respective services
       </div>
       <div className='mt-4 p-2 flex flex-col'>
         <ConnectedServices/>
@@ -25,6 +31,49 @@ const ConnectedServices = ({className}) => {
   return (
     <div className='flex flex-col'>
       <ConfigItemOpenAI/>
+    </div>
+  )
+}
+
+const ConfigItem = ({className, label, status, logo, children}) => {
+  return (
+    <div className={`flex flex-row items-start ${className}`}>
+      <div className='mr-6 flex flex-row items-center'>
+        {logo}
+        <code>{label}</code>
+        <StatusIndicator status={status}/>
+      </div>
+      {children}
+    </div>
+  )
+}
+
+const StatusIndicator = ({status}) => {
+  return (
+    <>
+    {status && <span className='ml-2 text-green-500'>✓</span>}
+    </>
+  )
+}
+
+const KeyDisplay = ({className, apiKey}) => {
+  const [isShowing, setIsShowing] = useState(false);
+
+  return (
+    <div className={`flex flex-row items-center ${className}`}>
+      {isShowing &&
+        <>
+          <div className='mr-2'>{apiKey}</div>
+          <button className='text-yellow-500 p-0 bg-transparent mr-4' onClick={() => setIsShowing(false)}>Hide</button>
+        </>
+      }
+        
+      {!isShowing &&
+        <>
+          <code className='mr-4'>********</code>
+          <button className='text-blue-500 p-0 bg-transparent mr-4' onClick={() => setIsShowing(true)}>Show</button>
+        </>
+      }
     </div>
   )
 }
@@ -42,24 +91,24 @@ const ConfigItemOpenAI = ({className}) => {
     <ConfigItem 
     label='OpenAI API Key'
     status={hasKeyOpenAI}
+    logo={<OpenAIInsignia className='h-6 w-6 mr-2'/>}
     className={`mb-4 ${className}`}
     >
       {hasKeyOpenAI && 
-        <code className='flex flex-row items-center'>
-          <div className='mr-4'>
-            {keyOpenAI}
-          </div>
-          <button className='text-blue-500' onClick={handleReset}>Clear</button>
-        </code>
+        <>
+          <code className='mr-4'>
+            <KeyDisplay apiKey={keyOpenAI}/>
+          </code>
+          <button className='text-red-500 p-0 bg-transparent' onClick={handleReset}>Clear</button>
+        </>
       }
 
       {!hasKeyOpenAI && 
         <div className='flex flex-col'>
           <KeyInputForm keyAtom={keyOpenAIAtom} hasKeyAtom={hasKeyOpenAIAtom}/>
-          <div className='text-xs text-gray-500'>You can get your key <a href='https://beta.openai.com/account/api-keys' target='_blank' rel='noreferrer'>here</a></div>
+          <div className='mt-1.5 text-sm text-gray-500'>You can get your key <a href='https://beta.openai.com/account/api-keys' target='_blank' rel='noreferrer'>here</a></div>
         </div>
       }
-
     </ConfigItem>
   )
 }
@@ -68,30 +117,5 @@ const ConfigItemVertuaNetwork = ({className}) => {
 }
 
 
-const KeyDisplay = ({className}) => {
-  // **** - show key
-}
 
 
-
-const ConfigItem = ({className, label, status, children}) => {
-  return (
-    <div className={`flex flex-row items-start ${className}`}>
-      <div className='mr-6 flex flex-row items-center'>
-        <code>{label}</code>
-        <StatusIndicator status={status}/>
-      </div>
-      {children}
-    </div>
-  )
-}
-
-
-const StatusIndicator = ({status}) => {
-  return (
-    <>
-    {status && <span className='ml-2 text-green-500'>✓</span>}
-    {!status && <span className='ml-2 text-red-500'>✗</span>}
-    </>
-  )
-}

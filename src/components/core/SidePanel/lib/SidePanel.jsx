@@ -11,7 +11,7 @@ import {
 import { PAGE } from '../../../../utils';
 import { 
   Icon, 
-  Logo, 
+  CodeBotLogo, 
   CodeGlyph,
   TogglePanelButton,
 } from '../../../utils';
@@ -37,7 +37,7 @@ export const SidePanel = ({className}) => {
 const PanelBanner = ({className}) => {
   return (
     <div className="flex flex-row items-center text-white p-2 bg-slate-900 drop-shadow-md bg-gradient-to-bl from-transparent to-[#00000057]">
-      <Logo className='flex-1'/>
+      <CodeBotLogo className='flex-1'/>
       <TogglePanelButton/>
     </div>
   )
