@@ -7,9 +7,12 @@ import {
   keyOpenAIAtom,
 } from '../../../atoms';
 import { ReactComponent as OpenAILogo } from '../../../assets/openai.svg';
+import { KeyInputForm } from '../../forms';
+
 
 export const OpenAICard = ({className}) => {
   const refCard = useRef(null);
+
   return (
     <PromptCard 
     className={className} 
@@ -28,37 +31,46 @@ export const OpenAICard = ({className}) => {
           Your key is not shared with anyone other than OpenAI
         </div>
       </div>
-      <APIKeyInputForm refCard={refCard} />
+
+      <KeyInputForm hasKeyAtom={hasKeyOpenAIAtom} keyAtom={keyOpenAIAtom}/>
+
     </PromptCard>
   )
 }
+
+// TODO Refactor - separate out the form from the other functionality
+
+//    setTimeout(() => {
+//     refCard.current.className = `h-[0rem] ${refCard.current.className}`;
+//      refCard.current.style.opacity = '0';
+//    }, 1000)
+
+// const refThanks = useRef(null);
+
+//    {hasInput &&
+//    <div> 
+//     Nice! Let's Go!
+//    </div>
+//   }
+
 
 const APIKeyInputForm = ({refCard, className}) => {
   const [keyOpenAI, setKeyOpenAI] = useAtom(keyOpenAIAtom);
   const [hasKeyOpenAI, setHasKeyOpenAI] = useAtom(hasKeyOpenAIAtom);
   const [hasInput, setHasInput] = useState(false);
+
   const refInput = useRef(null);
-  const refThanks = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("refCard: ", refCard)
     console.log("API Key: ", refInput.current.value)
-
     setHasInput(true)
     setKeyOpenAI(refInput.current.value);
     setHasKeyOpenAI(true);
-
-    setTimeout(() => {
-      refCard.current.className = `h-[0rem] ${refCard.current.className}`;
-      refCard.current.style.opacity = '0';
-    }, 1000)
-
   }
 
   return (
-    <>
-    {!hasInput &&
     <form
     onSubmit={handleSubmit}
     className='flex flex-row items-center'
@@ -74,14 +86,6 @@ const APIKeyInputForm = ({refCard, className}) => {
         Add Key
       </button>
     </form>
-    }
-
-    {hasInput &&
-    <div> 
-      Nice! Let's Go!
-    </div>
-    }
-    </>
   )
 }
 

@@ -11,7 +11,7 @@ export const CodeBotCard = ({className}) => {
     <PromptCard 
     className={className} 
     stateAtom={isVisibleCodeBotCardAtom} 
-    bottomText="Read my code"
+    bottomText="Read the code"
     ref={refCard}
     >
       <div className='flex flex-col items-center mt-2'>

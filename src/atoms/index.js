@@ -15,7 +15,7 @@ export const isPanelOpenAtom = atom(true);
 // #######################
 
 // Navigation
-export const activePageAtom = atom(PAGE.projects);
+export const activePageAtom = atom('');
 
 // Data Fetching
 export const isFetchingAtom = atom(false);

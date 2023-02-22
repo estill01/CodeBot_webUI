@@ -4,7 +4,7 @@ import { RESET } from 'jotai/utils';
 import { Icon } from '../../utils/Icon';
 import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
 import { PAGE } from '../../../utils';
-
+import { KeyInputForm } from '../../forms';
 
 
 export const ConfigsPage = () => {
@@ -21,18 +21,13 @@ export const ConfigsPage = () => {
   );
 }
 
-
-
 const ConnectedServices = ({className}) => {
   return (
     <div className='flex flex-col'>
       <ConfigItemOpenAI/>
-      <ConfigItemOpenAI/>
     </div>
   )
 }
-
-
 
 const ConfigItemOpenAI = ({className}) => {
   const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
@@ -60,7 +55,7 @@ const ConfigItemOpenAI = ({className}) => {
 
       {!hasKeyOpenAI && 
         <div className='flex flex-col'>
-          <input placeholder='Enter key'/>
+          <KeyInputForm keyAtom={keyOpenAIAtom} hasKeyAtom={hasKeyOpenAIAtom}/>
           <div className='text-xs text-gray-500'>You can get your key <a href='https://beta.openai.com/account/api-keys' target='_blank' rel='noreferrer'>here</a></div>
         </div>
       }

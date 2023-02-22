@@ -4,9 +4,11 @@ import {
 } from 'react-router-dom';
 import { App } from '../core/App';
 import {
-  ProjectsPage,
   ConfigsPage,
+  DashboardPage,
   ErrorPage,
+  MarketplacePage,
+  ProjectsPage,
 } from '../pages';
 import { PAGE } from '../../utils'; 
 
@@ -27,7 +29,15 @@ export const router = createBrowserRouter([
       {
         path: PAGE.configs,
         element: <ConfigsPage/>,
-      }
+      },
+      {
+        path: PAGE.dashboard,
+        element: <DashboardPage/>,
+      },
+      {
+        path: PAGE.marketplace,
+        element: <MarketplacePage/>,
+      },
     ],
   }
 ]);
