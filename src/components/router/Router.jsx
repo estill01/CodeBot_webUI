@@ -1,8 +1,9 @@
 import { 
   createBrowserRouter, 
+  Outlet,
 } from 'react-router-dom';
+import { Root } from './Root';
 import {
-  Page,
   ProjectsPage,
   ConfigsPage,
   ErrorPage,
@@ -11,7 +12,7 @@ import {
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Page/>,
+    element: <Root/>,
     errorElement: <ErrorPage/>,
     children: [
       {
