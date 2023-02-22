@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { useAtom } from 'jotai';
 
-export const KeyInputForm = ({hasKeyAtom, keyAtom, inputStyles, buttonStyles}) => {
+export const KeyInputForm = ({className, hasKeyAtom, keyAtom, inputStyles, buttonStyles}) => {
   const [hasFocus, setHasFocus] = useState(false);
   const [key, setKey] = useAtom(keyAtom); 
   const [hasKey, setHasKey] = useAtom(hasKeyAtom); 
@@ -37,7 +37,7 @@ export const KeyInputForm = ({hasKeyAtom, keyAtom, inputStyles, buttonStyles}) =
   return (
     <form
     onSubmit={handleSubmit}
-    className='flex flex-row items-center'
+    className={`flex flex-row items-center ${className}`}
     >
       <input 
       className={inputStyles || 'transition-colors outline-none border-2 border-zinc-600 p-2 rounded-md'}

@@ -2,8 +2,18 @@ import { useRef, forwardRef } from 'react';
 import { CloseButton } from '../../utils';
 
 const PromptCard = forwardRef((props, ref) => {
-  const {children, className, stateAtom, bottomText='Dismiss'} = props;
+  const {
+    className, 
+    stateAtom, 
+    insignia, 
+    text,
+    subtext,
+    bottomText='Dismiss', 
+    size,
+    children, 
+  } = props;
   const refContent = useRef(null);
+
 
   return (
     <div 
@@ -19,10 +29,17 @@ const PromptCard = forwardRef((props, ref) => {
       </div>
 
       <div 
-        className='flex-1 flex flex-col items-center justify-center px-6 bg-yellow transition-opacity duration-200' 
+        className='flex-1 flex flex-col items-center justify-center px-6 transition-opacity duration-200' 
         ref={refContent}
       >
-        {children}
+        {insignia}
+        <div className={`mt-3 font-semibold items-center flex flex-col items-center ${size === 'large' ? 'text-xl' : 'text-base'}`}>
+          {text}
+        </div>
+        <div className='text-sm text-zinc-400 font-normal'>
+          {subtext}
+        </div>
+        { children ? <div className='mt-4'>{children}</div> : null }
       </div>
 
       <div className='pb-4 transition-colors text-zinc-600 text-xs text-center hover:text-zinc-500 active:text-zinc-700 cursor-pointer select-none'>
