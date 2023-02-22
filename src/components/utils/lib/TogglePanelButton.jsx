@@ -1,8 +1,8 @@
 import { useAtom } from 'jotai';
-import { isPanelOpenAtom } from '../../atoms';
+import { isPanelOpenAtom } from '../../../atoms';
 import { DoubleArrowLeftIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons';
 
-const TogglePanelButton = ({className, color='grey', hoverColor="green"}) => {
+export const TogglePanelButton = ({className, color='grey', hoverColor="green"}) => {
   const [ isPanelOpen, setIsPanelOpen ] = useAtom(isPanelOpenAtom);
 
   const doToggle = () => {
@@ -17,4 +17,3 @@ const TogglePanelButton = ({className, color='grey', hoverColor="green"}) => {
     </div>
   )
 }
-export default TogglePanelButton;

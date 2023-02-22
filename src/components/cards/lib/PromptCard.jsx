@@ -1,7 +1,5 @@
 import { useRef, forwardRef } from 'react';
-import CloseButton from '../../utils/CloseButton';
-
-//const PromptCard = ({children, className, stateAtom, bottomText='Dismiss'}) => {
+import { CloseButton } from '../../utils';
 
 const PromptCard = forwardRef((props, ref) => {
   const {children, className, stateAtom, bottomText='Dismiss'} = props;

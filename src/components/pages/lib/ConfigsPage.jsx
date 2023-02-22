@@ -1,9 +1,9 @@
 import { Page } from './Page';
 import { useAtom } from 'jotai';
 import { RESET } from 'jotai/utils';
-import { Icon } from '../../utils/Icon';
-import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
+import { Icon } from '../../utils';
 import { PAGE } from '../../../utils';
+import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
 import { KeyInputForm } from '../../forms';
 
 

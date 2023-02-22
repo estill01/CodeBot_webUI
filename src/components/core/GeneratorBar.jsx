@@ -6,7 +6,7 @@ import {
   isFetchingAtom,
 } from "../../atoms";
 import { LightningBoltIcon } from "@radix-ui/react-icons";
-import CodeGlyph from '../utils/CodeGlyph';
+import { CodeGlyph } from '../utils';
 
 
 // ---- TMP ----
@@ -69,7 +69,7 @@ const GeneratorBar = ({ className }) => {
       className='flex-1 flex active:outline-none'
       >
         <div
-        className='flex flex-row items-center bg-[#3b3b3b] py-2 px-1 rounded-md border border-gray-600 flex-1 mr-2 hover:border-green-600 focus:border-green-600 outline-none transition-colors'
+        className='flex flex-row items-center bg-[#3b3b3b] py-2 px-1.5 rounded-md border border-gray-600 flex-1 mr-2 hover:border-green-600 focus:border-green-600 outline-none transition-colors'
         ref={refInputContainer}
         onClick={doFocus}
         >
@@ -84,7 +84,7 @@ const GeneratorBar = ({ className }) => {
             onKeyPress={handleKeyPress}
             onFocus={handleFocus}
             onBlur={handlBlur}
-            placeholder="What should I code?"
+            placeholder="What can I code for you?"
             autoComplete="off"
           />
 

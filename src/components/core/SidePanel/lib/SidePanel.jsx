@@ -9,10 +9,12 @@ import {
   activePageAtom,
 } from '../../../../atoms';
 import { PAGE } from '../../../../utils';
-import { Icon } from '../../../utils/Icon';
-import Logo from '../../../utils/Logo';
-
-import TogglePanelButton from '../../../utils/TogglePanelButton';
+import { 
+  Icon, 
+  Logo, 
+  CodeGlyph,
+  TogglePanelButton,
+} from '../../../utils';
 import { PanelSearchBar } from './PanelSearchBar';
 
 

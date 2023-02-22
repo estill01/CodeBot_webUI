@@ -19,7 +19,6 @@ export const KeyInputForm = ({hasKeyAtom, keyAtom, inputStyles, buttonStyles}) =
     >
       <input 
       className={inputStyles || 'border-2 border-emerald-600 p-2 rounded-md'}
-      className='flex-1 my-2 p-2 border rounded-md'
       placeholder='API key'
       ref={refInput}
       />
@@ -36,3 +35,5 @@ export const KeyInputForm = ({hasKeyAtom, keyAtom, inputStyles, buttonStyles}) =
 
 
 
+
+      // className='flex-1 my-2 p-2 border rounded-md'

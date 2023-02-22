@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai';
 
-const CloseButton = ({className, refParent, refContent, stateAtom}) => {
+export const CloseButton = ({className, refParent, refContent, stateAtom}) => {
   const [state, setState] = useAtom(stateAtom);
 
   return (
@@ -26,4 +26,3 @@ const CloseButton = ({className, refParent, refContent, stateAtom}) => {
     </div>
   )
 }
-export default CloseButton;

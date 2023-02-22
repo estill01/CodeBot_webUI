@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { promptAtom, promptResponseAtom, isFetchingAtom } from '../../../atoms';
 import { SpinnerCircular } from 'spinners-react';
 import { useAtom } from 'jotai';
 import { atomWithObservable } from 'jotai/utils';
 import { lowlight } from 'lowlight';
 import TextareaAutosize from 'react-textarea-autosize';
+import { promptAtom, promptResponseAtom, isFetchingAtom } from '../../../atoms';
 
 
 export const OutputCard = ({className}) => {

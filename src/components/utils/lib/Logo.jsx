@@ -1,4 +1,4 @@
-const Logo = ({className}) => {
+export const Logo = ({className}) => {
   return (
     <div className={`flex flex-row content-center text-xl ${className}`}>
       <div className='my-auto mr-[0.25em] text-[#00f100] font-medium tracking-[-0.1em]'>
@@ -8,4 +8,3 @@ const Logo = ({className}) => {
     </div>
   )
 }
-export default Logo;

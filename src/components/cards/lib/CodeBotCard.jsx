@@ -1,9 +1,7 @@
 import { useRef } from 'react';
 import PromptCard from './PromptCard';
 import {isVisibleCodeBotCardAtom} from '../../../atoms';
-import Logo from '../../utils/Logo';
-import CodeGlyph from '../../utils/CodeGlyph';
-import { OpenInNewWindowIcon } from '@radix-ui/react-icons';
+import { Logo, CodeGlyph } from '../../utils';
 
 export const CodeBotCard = ({className}) => {
   const refCard = useRef(null);
@@ -30,26 +28,10 @@ export const CodeBotCard = ({className}) => {
             Code<span className='font-normal'>Bot</span> is AI to build complete software 
           </div>
           <div className='text-sm text-zinc-400 font-normal'>
-            100% <span className='underline decoration-dotted decoration-1 decoration-slate-500 transition-colors hover:text-green-500 hover:decoration-emerald-500 hover:cursor-pointer active:text-green-700'>Open Source</span> & Decentralized
+            Proudly <span className='underline decoration-dotted decoration-1 decoration-slate-500 transition-colors hover:text-green-500 hover:decoration-emerald-500 hover:cursor-pointer active:text-green-700'>Open Source</span> & Decentralized
           </div>
         </div>
       </div>
     </PromptCard>
   )
 }
-
-
-
-          // <OpenInNewWindowIcon className='ml-[1em]' />
-
-{/*        <div className='mt-4 flex flex-col items-center'>*/}
-          {/*<div className='border border-green-500 text-sm py-1 px-3 rounded-md'>*/}
-            {/*Neat. Let's Roll!*/}
-          {/*</div>*/}
-          {/*<div className='flex text-green-700 self-center text-sm mt-2'>*/}
-            {/*Show me the code*/}
-          {/*</div>*/}
-        {/*</div>*/}
-
-
-          // Contribute to the project on GitHub

@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
+import { useAtom } from 'jotai';
 import { SidePanel } from './SidePanel';
 import { Page } from '../pages';
-import TogglePanelButton from '../utils/TogglePanelButton';
-import { useAtom } from 'jotai';
+import { TogglePanelButton} from '../utils';
 import { isPanelOpenAtom } from '../../atoms';
 
 export const App = () => {

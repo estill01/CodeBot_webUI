@@ -1,11 +1,11 @@
-import { PAGE } from '../../utils';
+import { PAGE } from '../../../utils';
 import { 
   FaceIcon, 
   GearIcon,
   GlobeIcon,
   RocketIcon,
 } from '@radix-ui/react-icons';
-import CodeGlyph from './CodeGlyph';
+import { CodeGlyph } from './CodeGlyph';
 
 export const Icon = ({name, color, className='w-5 h-5'}) => {
     switch(name) {
