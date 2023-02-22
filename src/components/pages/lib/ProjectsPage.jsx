@@ -23,7 +23,7 @@ export const ProjectsPage = ({className}) => {
   const [ isVisibleMetaMaskCard ] = useAtom(isVisibleMetaMaskCardAtom);
   const [ hasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   return (
-    <Page className='p-6'>
+    <div className='p-6'>
       <GeneratorBar className='mb-4'/>
 
       { prompt &&
@@ -42,6 +42,6 @@ export const ProjectsPage = ({className}) => {
         <MetaMaskCard className='mt-4'/>
       }
 
-    </Page>
+    </div>
   )
 }

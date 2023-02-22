@@ -11,7 +11,7 @@ export const CodeBotCard = ({className}) => {
     <PromptCard 
     className={className} 
     stateAtom={isVisibleCodeBotCardAtom} 
-    bottomText="Let's Rock"
+    bottomText="Read my code"
     ref={refCard}
     >
       <div className='flex flex-col items-center mt-2'>
@@ -30,7 +30,7 @@ export const CodeBotCard = ({className}) => {
             Code<span className='font-normal'>Bot</span> is AI to build complete software 
           </div>
           <div className='text-sm text-zinc-400 font-normal'>
-            Proudly Decentralized & <span className='underline decoration-dotted decoration-1 decoration-slate-500 transition-colors hover:text-green-500 hover:decoration-emerald-500 hover:cursor-pointer active:text-green-700'>Open Source</span>
+            100% <span className='underline decoration-dotted decoration-1 decoration-slate-500 transition-colors hover:text-green-500 hover:decoration-emerald-500 hover:cursor-pointer active:text-green-700'>Open Source</span> & Decentralized
           </div>
         </div>
       </div>

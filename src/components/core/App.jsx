@@ -1,8 +1,11 @@
-import { SidePanel } from './SidePanel'
-import { ProjectsPage } from '../pages'
-import TogglePanelButton from '../utils/TogglePanelButton'
-import { useAtom } from 'jotai'
-import { isPanelOpenAtom } from '../../atoms'
+import { SidePanel } from './SidePanel';
+import { ProjectsPage } from '../pages';
+import TogglePanelButton from '../utils/TogglePanelButton';
+import { useAtom } from 'jotai';
+import { isPanelOpenAtom } from '../../atoms';
+
+import { RouterProvider } from 'react-router-dom';
+import { router } from '../router/Router.jsx';
 
 
 // TODO Fix how you're placing the toggle button
@@ -20,9 +23,10 @@ const App = () => {
         />
       </div>
       }
-
-      <ProjectsPage className='flex-1'/>
-
+      <RouterProvider 
+      router={router}
+      fallbackElement={<div>loading...</div>}
+      />
     </div>
   )
 }
