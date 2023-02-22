@@ -1,15 +1,13 @@
 import { SidePanel } from './SidePanel';
-import { ProjectsPage } from '../pages';
+import { Page } from '../pages';
 import TogglePanelButton from '../utils/TogglePanelButton';
 import { useAtom } from 'jotai';
 import { isPanelOpenAtom } from '../../atoms';
 
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider, Outlet } from 'react-router-dom';
 import { router } from '../router/Router.jsx';
 
-
-// TODO Fix how you're placing the toggle button
-const App = () => {
+export const App = () => {
   const [isPanelOpen] = useAtom(isPanelOpenAtom)
   return (
     <div id="App" className="w-full h-screen flex flex-row">
@@ -23,11 +21,10 @@ const App = () => {
         />
       </div>
       }
-      <RouterProvider 
-      router={router}
-      fallbackElement={<div>loading...</div>}
-      />
+      <Page>
+        <Outlet />
+      </Page>
     </div>
   )
 }
-export default App
+

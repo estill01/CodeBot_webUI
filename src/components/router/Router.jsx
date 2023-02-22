@@ -2,7 +2,7 @@ import {
   createBrowserRouter, 
   Outlet,
 } from 'react-router-dom';
-import { Root } from './Root';
+import { App } from '../core/App';
 import {
   ProjectsPage,
   ConfigsPage,
@@ -12,7 +12,7 @@ import {
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root/>,
+    element: <App/>,
     errorElement: <ErrorPage/>,
     children: [
       {
