@@ -5,7 +5,10 @@ import {
   hasKeyOpenAIAtom,
   keyOpenAIAtom,
 } from '../../../atoms';
-import { OpenAIInsignia } from '../../utils';
+import { 
+  OpenAIInsignia,
+  OpenAIKeyHelperText,
+} from '../../utils';
 import { KeyInputForm } from '../../forms';
 
 export const OpenAICard = ({className}) => {
@@ -19,9 +22,12 @@ export const OpenAICard = ({className}) => {
     insignia={<OpenAIInsignia/>}
     text="Add Your OpenAI API Key To Get Started"
     subtext="Your key is not shared with anyone other than OpenAI"
-    bottomText='Help me find my key!'
+    bottomText={<OpenAIKeyHelperText/>}
     >
       <KeyInputForm className='' hasKeyAtom={hasKeyOpenAIAtom} keyAtom={keyOpenAIAtom}/>
     </PromptCard>
   )
 }
+
+    // bottomText='Help me find my key!'
+

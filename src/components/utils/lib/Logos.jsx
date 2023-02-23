@@ -105,21 +105,6 @@ export const CodeBotInsignia = ({className, size='medium'}) => {
   )
 }
 
-{/*    <div className='p-2 rounded-md bg-black border border-[#00f188] drop-shadow-lg select-none'>*/}
-      {/*<CodeBotGlyph/>*/}
-      {/*<div className='text-[#00f100] text-[2.5em]'>*/}
-        {/*<span className='font-bold tracking-tight'>&lt;</span>*/}
-        {/*<span className='font-light tracking-tight'>/</span>*/}
-        {/*<span className='font-bold'>&gt;</span>*/}
-      {/*</div>*/}
-    {/*</div>*/}
-
-
-
-// export const CodeBotGlyph = () => {
-// }
-
-
 
 // -- OpenAI -- 
 export const OpenAIInsignia = ({className, size='medium'}) => {

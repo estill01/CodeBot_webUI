@@ -50,8 +50,8 @@ const PromptCard = forwardRef((props, ref) => {
         { children ? <div className='mt-4'>{children}</div> : null }
       </div>
 
-      <div className='pb-4 transition-colors text-zinc-600 text-xs text-center hover:text-zinc-500 active:text-zinc-700 cursor-pointer select-none'>
-        {bottomText}
+      <div className='pb-4 transition-colors text-zinc-600 text-xs text-center hover:text-zinc-500 active:text-zinc-700 select-none'>
+        <span className='cursor-pointer'>{bottomText}</span>
       </div>
     </div>
   )

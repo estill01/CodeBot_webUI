@@ -26,13 +26,13 @@ export const SidePanel = ({className}) => {
       <div className='p-1.5'>
         <PanelSearchBar className=''/>
       </div>
-      <PanelSectionHeader title={PAGE.dashboard} url='dashboard'/>
       <ProjectsList/>
       <PanelSectionHeader title={PAGE.marketplace} url='market'/>
       <PanelSectionHeader title={PAGE.configs} url='configs'/>
     </div>
   )
 }
+// <PanelSectionHeader title={PAGE.dashboard} url='dashboard'/>
 
 const PanelBanner = ({className}) => {
   return (

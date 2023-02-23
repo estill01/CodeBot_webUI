@@ -8,6 +8,7 @@ import {
   VertuaNetworkInsignia,
   MetaMaskInsignia,
   CodeBotInsignia,
+  OpenAIKeyHelperText,
 } from '../../utils';
 import { PAGE } from '../../../utils';
 import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
@@ -41,8 +42,7 @@ const ConnectedServices = ({className}) => {
   )
 }
 
-const ConfigItem = ({className, logo, label, status, children}) => {
-  return (
+const ConfigItem = ({className, logo, label, status, children}) => { return (
     <div className={`flex flex-row items-start ${className}`}>
       <div className='mr-6 flex flex-row items-center'>
         <div className='mr-4'>
@@ -151,10 +151,12 @@ const ConfigItemOpenAI = ({className}) => {
       {!hasKeyOpenAI && 
         <div className='flex flex-col'>
           <KeyInputForm keyAtom={keyOpenAIAtom} hasKeyAtom={hasKeyOpenAIAtom}/>
-          <div className='mt-1.5 text-sm text-gray-500'>You can get your key <a href='https://beta.openai.com/account/api-keys' target='_blank' rel='noreferrer'>here</a></div>
+          <OpenAIKeyHelperText className='mt-1.5'/>
         </div>
       }
     </ConfigItem>
   )
 }
+
+
 
