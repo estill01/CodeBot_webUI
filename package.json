@@ -1,9 +1,14 @@
 {
   "name": "CodeBot",
-  "homepage": ".",
+  "description":"Build software with AI",
+  "license": "MIT",
   "version": "0.1.0",
-  "private": true,
+  "homepage": ".",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:VertuaLabs/CodeBot_web.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
