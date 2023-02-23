@@ -8,14 +8,13 @@ import {
 import { OpenAIInsignia } from '../../utils';
 import { KeyInputForm } from '../../forms';
 
-import { useAtom } from 'jotai';
-
 export const OpenAICard = ({className}) => {
   const refCard = useRef(null);
   return (
     <PromptCard 
     className={className} 
     ref={refCard}
+    size='large'
     stateAtom={isVisibleOpenAICardAtom} 
     insignia={<OpenAIInsignia/>}
     text="Add Your OpenAI API Key To Get Started"
@@ -26,14 +25,3 @@ export const OpenAICard = ({className}) => {
     </PromptCard>
   )
 }
-
-{/*      <div className='flex flex-col items-center mb-2'>*/}
-        {/*<OpenAIInsignia className='mb-2'/>*/}
-        {/*<div className='text-zinc-300 font-semibold'>*/}
-          {/*Add Your OpenAI API Key To Get Started*/}
-        {/*</div>*/}
-        {/*<div className='text-sm text-zinc-400'>*/}
-          {/*Your key is not shared with anyone other than OpenAI*/}
-        {/*</div>*/}
-      {/*</div>*/}
-

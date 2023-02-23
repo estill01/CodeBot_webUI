@@ -1,7 +1,10 @@
 import { useRef } from 'react';
 import PromptCard from './PromptCard';
 import { isVisibleMetaMaskCardAtom } from '../../../atoms';
-import { VertuaNetworkInsignia } from '../../utils'
+import { 
+  VertuaNetworkInsignia, 
+  ConnectMetaMaskButton,
+} from '../../utils'
 import MetaMaskLogo from '../../../assets/metamask-fox.svg';
 
 export const MetaMaskCard = ({className}) => {
@@ -10,31 +13,16 @@ export const MetaMaskCard = ({className}) => {
   return (
     <PromptCard 
     className={className} 
-    stateAtom={isVisibleMetaMaskCardAtom} 
-    bottomText="What's Vertua?"
     ref={refCard}
+    size='large'
+    stateAtom={isVisibleMetaMaskCardAtom} 
+    insignia={<VertuaNetworkInsignia/>}
+    text='Boost Performance With Vertua Market'
+    subtext='Integrate new AI capabilities, and sell what you create'
+    bottomText="What's Vertua?"
     >
-
-      <div className='flex flex-col items-center justify-center mb-2'>
-        <VertuaNetworkInsignia className='mb-2' />
-        <div className='font-semibold text-center mt-2'>
-          Boost Performance With Vertua Market 
-        </div>
-        <div className='text-sm text-zinc-400'>
-          Integrate new AI capabilities, and sell what you create
-        </div>
-      </div>
-
-      <div className='mt-2 flex flex-row transition-colors bg-slate-100 text-zinc-500 hover:bg-white hover:text-zinc-600 active:bg-slate-200 active:text-zinc-600 select-none rounded-lg items-center py-1 px-2 border border-slate-400 hover:cursor-pointer text-sm'>
-        <img src={MetaMaskLogo} className='w-6 h-6 mr-2'/>
-        <div className=''>
-          Connect With MetaMask
-        </div>
-      </div>
-
+      <ConnectMetaMaskButton className='mt-4'/>
     </PromptCard>
   )
 }
-
-
 

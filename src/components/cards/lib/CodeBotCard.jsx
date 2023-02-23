@@ -15,6 +15,7 @@ export const CodeBotCard = ({className}) => {
     stateAtom={isVisibleCodeBotCardAtom} 
     insignia={<CodeBotInsignia/>}
     text={text}
+    textSize='text-2xl'
     subtext={subText}
     bottomText="Read the code"
     />

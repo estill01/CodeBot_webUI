@@ -1,3 +1,4 @@
+import { cloneElement } from 'react';
 import { useRef, forwardRef } from 'react';
 import { CloseButton } from '../../utils';
 
@@ -10,10 +11,17 @@ const PromptCard = forwardRef((props, ref) => {
     subtext,
     bottomText='Dismiss', 
     size,
+    textSize,
     children, 
   } = props;
   const refContent = useRef(null);
 
+  const clonedInsignia = cloneElement(insignia, { size: size });
+
+  let _textSize = textSize
+  if (!_textSize) {
+    size == 'large' ? _textSize = 'text-lg' : _textSize = 'text-base';
+  }
 
   return (
     <div 
@@ -32,8 +40,8 @@ const PromptCard = forwardRef((props, ref) => {
         className='flex-1 flex flex-col items-center justify-center px-6 transition-opacity duration-200' 
         ref={refContent}
       >
-        {insignia}
-        <div className={`mt-3 font-semibold items-center flex flex-col items-center ${size === 'large' ? 'text-xl' : 'text-base'}`}>
+        {clonedInsignia}
+        <div className={`mt-3 font-semibold items-center flex flex-col items-center ${_textSize}`}>
           {text}
         </div>
         <div className='text-sm text-zinc-400 font-normal'>

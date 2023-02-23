@@ -7,6 +7,7 @@ import {
   OpenAIInsignia,
   VertuaNetworkInsignia,
   MetaMaskInsignia,
+  CodeBotInsignia,
 } from '../../utils';
 import { PAGE } from '../../../utils';
 import { hasKeyOpenAIAtom, keyOpenAIAtom } from '../../../atoms';
@@ -20,7 +21,7 @@ export const ConfigsPage = () => {
         <span className='font-semibold'>Configs</span>
       </div>
       <div className='mt-2 text-sm text-zinc-400'>
-        All Keys are stored on your local machine and are only used to interact with their respective services
+        All keys are stored on your computer and only used to interact with their respective services
       </div>
       <div className='mt-4 p-2 flex flex-col'>
         <ConnectedServices/>
@@ -32,18 +33,21 @@ export const ConfigsPage = () => {
 const ConnectedServices = ({className}) => {
   return (
     <div className='flex flex-col'>
-      <ConfigItemOpenAI/>
-      <ConfigItemVertuaNetwork/>
-      <ConfigItemMetaMask/>
+      <ConfigItemOpenAI className='mb-4'/>
+      <ConfigItemVertuaNetwork className='mb-4'/>
+      <ConfigItemMetaMask className='mb-4'/>
+      <ConfigItemCodeBot className='mb-4'/>
     </div>
   )
 }
 
-const ConfigItem = ({className, label, status, logo, children}) => {
+const ConfigItem = ({className, logo, label, status, children}) => {
   return (
     <div className={`flex flex-row items-start ${className}`}>
       <div className='mr-6 flex flex-row items-center'>
-        <div className='mr-4'>{logo}</div>
+        <div className='mr-4'>
+          {logo}
+        </div>
         <code>{label}</code>
         <StatusIndicator status={status}/>
       </div>
@@ -82,6 +86,18 @@ const KeyDisplay = ({className, apiKey}) => {
   )
 }
 
+const ConfigItemCodeBot = ({className}) => {
+  const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
+  return (
+    <ConfigItem 
+    label='CodeBot'
+    status={hasKeyOpenAI}
+    logo={<CodeBotInsignia size='small'/>}
+    className={className}
+    />
+  )
+}
+
 const ConfigItemMetaMask = ({className}) => {
   const [ hasKeyOpenAI, setHasKeyOpenAI ] = useAtom(hasKeyOpenAIAtom);
   return (
@@ -89,9 +105,8 @@ const ConfigItemMetaMask = ({className}) => {
     label='MetaMask Connected'
     status={hasKeyOpenAI}
     logo={<MetaMaskInsignia size='small'/>}
-    className={`mb-4 ${className}`}
-    >
-    </ConfigItem>
+    className={className}
+    />
   )
 }
 
@@ -103,9 +118,8 @@ const ConfigItemVertuaNetwork = ({className}) => {
     label='Vertua Network Account'
     status={hasKeyOpenAI}
     logo={<VertuaNetworkInsignia size='small'/>}
-    className={`mb-4 ${className}`}
-    >
-    </ConfigItem>
+    className={className}
+    />
   )
 }
 
@@ -122,8 +136,8 @@ const ConfigItemOpenAI = ({className}) => {
     <ConfigItem 
     label='OpenAI API Key'
     status={hasKeyOpenAI}
-    logo={<OpenAIInsignia className='h-6 w-6 mr-2'/>}
-    className={`mb-4 ${className}`}
+    logo={<OpenAIInsignia size='small'/>}
+    className={className}
     >
       {hasKeyOpenAI && 
         <>
