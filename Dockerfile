@@ -10,9 +10,9 @@ ADD . .
 RUN npm install
 
 # Fix for issues esbuild has in Dockerized environment
-# tried 'entrypoint.sh'
-# trying: '/entrypoint.sh'
+# tried: 'entrypoint.sh' #FAIL
+# tried: '/entrypoint.sh' #FAIL
 # try next: './entrypoint.sh'
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 CMD ["node"]
