@@ -7,9 +7,9 @@ COPY package.json .
 RUN npm install
 
 COPY . .
+# COPY docker-entrypoint.sh /app/docker-entrypoint.sh
 
-# COPY entrypoint.sh /entrypoint.sh
-# RUN chmod +x /entrypoint.sh
+RUN chmod +x docker-entrypoint.sh
 
 
 # ADD . .
@@ -23,5 +23,6 @@ COPY . .
 # trying: '/entrypoint.sh' #FAIL
 #  -> exec /entrypoint.sh: exec format error
 # ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["node"]

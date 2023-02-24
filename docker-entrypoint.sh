@@ -1,5 +1,3 @@
-#!/bin/bash
-
+#!/bin/sh
 npm rebuild esbuild
-
 exec "$@"

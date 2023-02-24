@@ -10,11 +10,11 @@
     "url": "https://github.com:VertuaLabs/CodeBot_web.git"
   },
   "scripts": {
-    "docker:dev": "docker-compose up --build -f dev/docker-compose.dev.yml",
-    "docker:prod": "docker-compose up --build -f docker-compose.yml",
+    "docker:dev": "docker-compose -f dev/docker-compose.dev.yml up --build",
+    "docker:prod": "docker-compose -f docker-compose.yml up --build",
     "docker:build": "docker build -t estill01/codebot_web_prod:latest .",
     "docker:push": "docker push estill01/codebot_web_prod:latest",
-    "docker:commit": "docker commit codebot_web_prod estill01/codebot_web_prod:latest",
+    "__docker:commit": "docker commit codebot_web_prod estill01/codebot_web_prod:latest",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
