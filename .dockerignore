@@ -1,0 +1,4 @@
+# Dockerignore
+Dockerfile.dev
+Dockerfile.dev.dockerignore
+docker-compose.dev.yml

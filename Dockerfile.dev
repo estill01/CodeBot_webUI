@@ -12,4 +12,7 @@ RUN npm install
 # Fix for issues esbuild has in Dockerized environment
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["node"]
+# Port for the server
+EXPOSE 5173 
+
+CMD ["npm", "run", "dev"]
