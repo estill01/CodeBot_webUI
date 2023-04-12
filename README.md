@@ -12,6 +12,7 @@ Has everything you'd need to build a fully-featured modern web UI.
 - 👻 [Jotai](https://jotai.org/) : Atomic state management
 - ✨ [TanStack Query](https://tanstack.com/query/latest) (FKA ReactQuery) : async data fetcher (though swapped it for a simple `fetch`..)
 - 💨 [TailwindCss](https://tailwindcss.com/) : The CSS system for tastemakers and enlightened individuals
+- 🦾 [OpenAI API](https://platform.openai.com/) : Magial code generation machine
 
 ## Not Built With
 
