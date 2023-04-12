@@ -4,6 +4,7 @@ Fun mini-project to build something with the 2022-2023 vintage UI tooling and Op
 
 Has everything you'd need to build a fully-featured modern web UI.
 
+See it Live: https://gateway.ipfscdn.io/ipfs/QmdN7ziqpU19CsQgRp7KdZykqjZUosdoeMLCWCPW7KfVUv/
 
 ## Built with
 
@@ -17,6 +18,9 @@ Has everything you'd need to build a fully-featured modern web UI.
 ## Not Built With
 
 - 🧱 [Formik](https://formik.org): Because I didn't need it yet; `createRef` will take you pretty far.
+
+## Deployed
+- ⛓ [IPFS](https://research.protocol.ai/publications/ipfs-content-addressed-versioned-p2p-file-system/): Decentralized file storage
 
 ## What's Next?
 
